@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ciclo Studio - Producción audiovisual con propósito. Creamos contenido que genera impacto real y comunica de forma consciente.">
-    <meta name="keywords" content="producción audiovisual, videoproducción, contenido digital, documental, fotografía profesional, branded content">
+    <meta name="keywords" content="producción audiovisual, videoproducción, contenido digital, documental, fotografía profesional, branded content, sostenibilidad">
     <meta name="author" content="Ciclo Studio">
     <meta name="theme-color" content="#050b08">
     
@@ -24,8 +24,7 @@
         "addressCountry": "CL"
       },
       "priceRange": "$$",
-      "url": "https://www.ciclostudio.cl",
-      "telephone": "+56900000000",
+      "url": "https://ciclo8studio-debug.github.io/CICLO-STUDIO/",
       "sameAs": [
         "https://instagram.com",
         "https://vimeo.com",
@@ -45,7 +44,6 @@
            ========================================================================== */
 
         :root {
-            /* Palette & Neon Green Gradients */
             --bg-dark: #050b08;
             --bg-card: rgba(13, 22, 18, 0.65);
             --bg-glass: rgba(255, 255, 255, 0.03);
@@ -75,7 +73,6 @@
             --glow-emerald: 0 0 25px rgba(16, 185, 129, 0.4);
         }
 
-        /* Base Reset & Globals */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
@@ -120,7 +117,6 @@
             padding: 0 1.5rem;
         }
 
-        /* Typography Accents */
         .gradient-text {
             background: var(--grad-primary);
             -webkit-background-clip: text;
@@ -164,13 +160,13 @@
             box-shadow: var(--glow-green);
         }
 
-        /* UI Buttons & Links */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
             padding: 0.9rem 2rem;
+            min-height: 48px;
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -219,6 +215,7 @@
             align-items: center;
             gap: 0.5rem;
             margin-top: 1rem;
+            min-height: 44px;
         }
 
         .link-accent:hover {
@@ -226,19 +223,6 @@
             text-shadow: 0 0 10px rgba(0, 255, 102, 0.8);
         }
 
-        .link-simple {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            transition: color var(--transition-fast);
-        }
-
-        .link-simple:hover {
-            color: var(--accent-neon);
-        }
-
-        /* Play Button (Glass Cyber) */
         .btn-play-large {
             width: 60px;
             height: 60px;
@@ -262,7 +246,7 @@
         }
 
         /* ==========================================================================
-           NAVIGATION BAR
+           NAVIGATION BAR & RESPONSIVE MENU
            ========================================================================== */
         .navbar {
             position: fixed;
@@ -273,8 +257,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.25rem 5%;
-            background: rgba(5, 11, 8, 0.75);
+            padding: 1rem 5%;
+            background: rgba(5, 11, 8, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-glass);
@@ -282,22 +266,17 @@
         }
 
         .navbar .logo img {
-            height: 80px;
+            height: 55px;
             width: auto;
             filter: drop-shadow(0 0 8px rgba(0, 255, 102, 0.2));
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-             border-radius: 50px;
-            
-   
+            border-radius: 8px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-link {
@@ -306,7 +285,10 @@
             color: var(--text-muted);
             letter-spacing: 0.03em;
             position: relative;
-            padding: 0.25rem 0;
+            padding: 0.5rem 0;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .nav-link::after {
@@ -321,12 +303,50 @@
             box-shadow: var(--glow-green);
         }
 
-        .nav-link:hover {
-            color: #ffffff;
+        .nav-link:hover { color: #ffffff; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Mobile Hamburger Toggle */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
+        .mobile-menu-btn span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: var(--accent-neon);
+            border-radius: 2px;
+            transition: all var(--transition-fast);
+        }
+
+        @media (max-width: 992px) {
+            .mobile-menu-btn { display: flex; }
+            .nav-btn-desktop { display: none; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: rgba(5, 11, 8, 0.98);
+                border-left: 1px solid var(--border-glass);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 1.5rem;
+                padding: 2rem;
+                transition: right var(--transition-smooth);
+            }
+            .nav-links.active { right: 0; }
         }
 
         /* ==========================================================================
@@ -353,8 +373,8 @@
         .hero-bg img {
             width: 100%;
             height: 100%;
-            object-fit: auto;
-            filter: brightness(0.35) contrast(1.15) hue-rotate(90deg);
+            object-fit: cover;
+            filter: brightness(0.35) contrast(1.15);
             transform: scale(1.05);
         }
 
@@ -399,7 +419,7 @@
         }
 
         .hero-title {
-            font-size: clamp(2.8rem, 6vw, 5.2rem);
+            font-size: clamp(2.5rem, 5.5vw, 5rem);
             font-weight: 900;
             line-height: 1.05;
             letter-spacing: -0.03em;
@@ -420,20 +440,6 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 1.5rem;
-        }
-
-        .reel-text {
-            display: flex;
-            flex-direction: column;
-            font-size: 0.75rem;
-            line-height: 1.2;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-        }
-
-        .reel-text strong {
-            color: #ffffff;
-            font-weight: 700;
         }
 
         .scroll-indicator {
@@ -480,6 +486,13 @@
             align-items: center;
         }
 
+        @media (max-width: 992px) {
+            .about-section .section-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
         .about-paragraph {
             color: var(--text-muted);
             margin-bottom: 1rem;
@@ -494,6 +507,7 @@
             border: 1px solid var(--border-glass);
             background: var(--bg-card);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            aspect-ratio: 16 / 9;
         }
 
         .about-video-file {
@@ -503,24 +517,14 @@
             display: block;
         }
 
-        .about-video .btn-play-large {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .about-video:hover .btn-play-large {
-            transform: translate(-50%, -50%) scale(1.15);
-        }
-
         /* ==========================================================================
            STATS SECTION
            ========================================================================== */
         .stats-section {
             padding: 3rem 0;
             background: rgba(0, 255, 102, 0.015);
-            border-y: 1px solid var(--border-glass);
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
             backdrop-filter: blur(10px);
         }
 
@@ -546,7 +550,7 @@
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 900;
             background: var(--grad-primary);
             -webkit-background-clip: text;
@@ -565,7 +569,7 @@
            SERVICES SECTION
            ========================================================================== */
         .services-section {
-            padding: 8rem 5%;
+            padding: 7rem 5%;
             max-width: 1280px;
             margin: 0 auto;
         }
@@ -585,37 +589,26 @@
             font-size: 1.05rem;
         }
 
-/* Modifica estas reglas dentro de tu etiqueta <style> */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
 
-.services-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;          /* Evita el salto a una segunda fila */
-    overflow-x: auto;           /* Habilita la navegación con scroll horizontal */
-    overflow-y: hidden;
-    gap: 2rem;
-    padding-bottom: 1rem;     /* Espacio para la barra de desplazamiento */
-    scroll-snap-type: x mandatory; /* Hace que las tarjetas encajen suavemente al desplazarse */
-    -webkit-overflow-scrolling: touch;
-}
-
-.service-card {
-    flex: 0 0 259px;            /* Fija el ancho de cada tarjeta para que mantengan la estructura */
-    scroll-snap-align: start;
-    background: var(--bg-card);
-    border: 1px solid var(--border-glass);
-    border-radius: 24px;
-    padding: 2rem 2rem;
-    position: relative;
-    backdrop-filter: blur(16px);
-    transition: all var(--transition-smooth);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
+            backdrop-filter: blur(16px);
+            transition: all var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: var(--border-highlight);
             box-shadow: 0 20px 40px rgba(0, 255, 102, 0.15);
         }
@@ -650,7 +643,7 @@
         .service-card p {
             color: var(--text-muted);
             font-size: 0.9rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 300;
             line-height: 1.5;
         }
@@ -723,14 +716,16 @@
             position: relative;
         }
 
-        .project-image img {
+        .project-image img,
+        .project-image video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .project-card:hover .project-image img {
+        .project-card:hover .project-image img,
+        .project-card:hover .project-image video {
             transform: scale(1.08);
         }
 
@@ -916,6 +911,13 @@
             align-items: center;
         }
 
+        @media (max-width: 992px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
         .contact-title {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
@@ -943,7 +945,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
             border-radius: 28px;
-            padding: 3rem;
+            padding: 2.5rem;
             backdrop-filter: blur(20px);
             box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
@@ -956,6 +958,10 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.25rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
         }
 
         .form-group {
@@ -1040,10 +1046,6 @@
         .footer-logo p {
             color: var(--text-dim);
             font-size: 0.85rem;
-      
-                        
-                        
-            
         }
 
         .footer-links {
@@ -1058,6 +1060,9 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             color: var(--text-muted);
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .footer-links a:hover {
@@ -1070,8 +1075,8 @@
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: rgba(0, 255, 102, 0.03);
             border: 1px solid var(--border-glass);
@@ -1102,83 +1107,25 @@
         .footer-bottom a {
             color: var(--text-muted);
         }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
-        /* ==========================================================================
-           RESPONSIVE BREAKPOINTS (Mobile First Rules)
-           ========================================================================== */
-        @media (max-width: 992px) {
-            .about-section .section-container,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .services-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .contact-img {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 7rem;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form-container {
-                padding: 1.75rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
     </style>
 </head>
+
 <body>
 
-    <!-- NAVEGACIÓN MEJORADA -->
-    <header class="navbar" role="navigation" aria-label="Navegación principal">
-        <div class="navbar-blur"></div>
-        <div class="logo">
-            <a href="#inicio" aria-label="Ciclo Studio - Inicio">
+    <!-- NAVIGATION BAR -->
+    <header>
+        <nav class="navbar" aria-label="Navegación principal">
+            <a href="#inicio" class="logo" aria-label="Ciclo Studio - Inicio">
                 <img src="assets/logo2.png" alt="Ciclo Studio Logo" loading="eager">
             </a>
-        </div>
-        <nav>
-            <ul class="nav-links">
+
+            <button class="mobile-menu-btn" aria-label="Abrir menú de navegación" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
                 <li><a href="#servicios" class="nav-link">Servicios</a></li>
                 <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
@@ -1186,505 +1133,370 @@
                 <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
+
+            <a href="#contacto" class="btn btn-outline nav-btn-desktop" aria-label="Ir a contacto">
+                CUÉNTANOS TU PROYECTO →
+            </a>
         </nav>
-        <a href="#contacto" class="btn btn-outline" aria-label="Ir a contacto">CUÉNTANOS TU PROYECTO →</a>
     </header>
 
-    <!-- HERO SECTION MEJORADO -->
-    <section class="hero" id="inicio" aria-label="Sección principal">
-        <div class="hero-bg">
-            <img 
-                src="assets/banner.jpg" 
-                alt="Camarógrafo profesional grabando en la naturaleza" 
-                loading="eager"
-                width="1600"
-                height="900">
-            <div class="hero-overlay"></div>
-        </div>
-        
-        <div class="hero-decorations" aria-hidden="true">
-            <div class="decoration decoration-1"></div>
-            <div class="decoration decoration-2"></div>
-            <div class="decoration decoration-3"></div>
-        </div>
-
-        <div class="hero-content" data-animate="fadeInUp">
-            <div class="badge animate-badge">
-                <span class="badge-dot" aria-hidden="true"></span>
-                NARRATIVAS <span class="badge-accent">CON PROPÓSITO</span>
+    <main id="inicio">
+        <!-- HERO SECTION -->
+        <section class="hero" aria-label="Sección principal">
+            <div class="hero-bg">
+                <img src="assets/banner.jpg" alt="Camarógrafo profesional grabando en la naturaleza" width="1600" height="900" loading="eager">
+                <div class="hero-overlay"></div>
             </div>
-            <h1 class="hero-title">
-                Narrativas<br>
-                <span class="gradient-text">que dejan</span><br>
-                impacto.<br>
-                <span class="text-accent">No basura.</span>
-            </h1>
-            <p class="hero-description">Creamos contenido audiovisual para marcas y organizaciones que quieren comunicar de forma consciente y generar un impacto real en sus audiencias.</p>
-            <div class="hero-actions">
-                <a href="#contacto" class="btn btn-primary" aria-label="Cuéntanos tu historia">
-                    <span>CUÉNTANOS TU HISTORIA</span>
-                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <!-- <button class="btn-play-large" aria-label="Ver reel de Ciclo Studio" type="button">
-                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
-                    </svg>
-                </button>
-                <div class="reel-text" aria-hidden="true">
-                    <strong>VER REEL</strong>
-                    <span>CICLO STUDIO</span>
-                </div> -->
-            </div>
-        </div>
 
-        <div class="scroll-indicator" aria-hidden="true">
-            <div class="scroll-dot"></div>
-            <span>Desplaza para explorar</span>
-        </div>
-    </section>
-
-    <!-- NOSOTROS MEJORADO -->
-    <section id="nosotros" class="about-section" aria-label="Sobre nosotros">
-        <div class="section-container">
-            <div class="about-text" data-animate="fadeInLeft">
-                <span class="section-subtitle">CICLO STUDIO</span>
-                <h2 class="section-title">Producir también es una decisión.</h2>
-                <div class="accent-line" aria-hidden="true"></div>
-                <p class="about-paragraph">En Ciclo Studio creemos que cada producción puede generar impacto positivo, desde la historia que contamos hasta la forma en que la producimos.</p>
-                <p class="about-paragraph">Optimizamos recursos, reducimos desperdicios y elegimos caminos que inspiren y transformen a nuestras audiencias.</p>
-                <p class="about-paragraph">Somos un equipo multidisciplinario con experiencia en cine, publicidad, documentales y contenido digital para plataformas globales.</p>
-                <a href="#" class="link-accent">CONOCE MÁS SOBRE NOSOTROS →</a>
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    NARRATIVAS <span class="gradient-text">CON PROPÓSITO</span>
+                </div>
+                <h1 class="hero-title">
+                    Narrativas<br>
+                    <span class="gradient-text">que dejan</span><br>
+                    impacto.<br>
+                    <span class="text-accent">No basura.</span>
+                </h1>
+                <p class="hero-description">
+                    Creamos contenido audiovisual para marcas y organizaciones que quieren comunicar de forma consciente y generar un impacto real en sus audiencias.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-primary" aria-label="Cuéntanos tu historia">
+                        <span>CUÉNTANOS TU HISTORIA</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
             </div>
-            <div class="about-video" data-animate="fadeInRight">
-                    <video 
-                        src="assets/video1.mp4" 
-                        class="about-video-file"
-                        autoplay 
-                        muted 
-                        loop 
-                        playsinline 
-                        preload="metadata">
+
+            <div class="scroll-indicator" aria-hidden="true">
+                <div class="scroll-dot"></div>
+                <span>Desplaza para explorar</span>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="nosotros" class="about-section" aria-label="Sobre nosotros">
+            <div class="section-container">
+                <div class="about-text">
+                    <span class="section-subtitle">CICLO STUDIO</span>
+                    <h2 class="section-title">Producir también es una decisión.</h2>
+                    <div class="accent-line"></div>
+                    <p class="about-paragraph">En Ciclo Studio creemos que cada producción puede generar impacto positivo, desde la historia que contamos hasta la forma en que la producimos.</p>
+                    <p class="about-paragraph">Optimizamos recursos, reducimos desperdicios y elegimos caminos que inspiren y transformen a nuestras audiencias.</p>
+                    <p class="about-paragraph">Somos un equipo multidisciplinario con experiencia en cine, publicidad, documentales y contenido digital para plataformas globales.</p>
+                    <a href="#contacto" class="link-accent">CONOCE MÁS SOBRE NUESTRO ENFOQUE →</a>
+                </div>
+                <div class="about-video">
+                    <video class="about-video-file" autoplay loop muted playsinline preload="none" poster="assets/banner.jpg" src="assets/video1.mp4">
                         Tu navegador no soporta la reproducción de video.
                     </video>
-                    <button class="btn-play-large" aria-label="Reproducir video - Conoce Ciclo Studio" type="button">
-                        <svg viewBox="0 0 25 25" width="22" height="22" aria-hidden="true" focusable="false">
-                            <polygon points="5 3 19 12 5 21 5 3"/>
-                        </svg>
-                    </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS SECTION -->
-    <section class="stats-section" aria-label="Nuestros logros">
-        <div class="section-container">
-            <div class="stats-grid">
-                <div class="stat-item" data-animate="fadeInUp">
-                    <h3 class="stat-number">10+</h3>
-                    <p class="stat-label">Proyectos realizados</p>
-                </div>
-                <div class="stat-item" data-animate="fadeInUp">
-                    <h3 class="stat-number">2+</h3>
-                    <p class="stat-label">Marcas confían en nosotros</p>
-                </div>
-                <div class="stat-item" data-animate="fadeInUp">
-                    <h3 class="stat-number">1+</h3>
-                    <p class="stat-label">Años de experiencia</p>
-                </div>
-                <div class="stat-item" data-animate="fadeInUp">
-                    <h3 class="stat-number">1M+</h3>
-                    <p class="stat-label">Vistas acumuladas</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SERVICIOS MEJORADO -->
-    <section id="servicios" class="services-section" aria-label="Nuestros servicios">
-        <div class="services-header" data-animate="fadeInUp">
-            <div>
-                <span class="section-subtitle">QUÉ HACEMOS</span>
-                <h2 class="section-title">Contenido audiovisual<br>que conecta e inspira.</h2>
-            </div>
-            <p class="services-desc">Soluciones creativas para comunicar tu mensaje en cualquier formato y plataforma.</p>
-        </div>
-        
-        <div class="services-grid" role="list">
-            <article class="service-card" data-animate="fadeInUp" style="animation-delay: 0.1s" role="listitem">
-                <div class="service-icon">
-                    <img 
-                        src="assets/logo.png" 
-                        alt="Icono producción audiovisual" 
-                        loading="lazy"
-                        width="80"
-                        height="80">
-                </div>
-                <h3>PRODUCCIÓN AUDIOVISUAL</h3>
-                <p>Publicidad, corporativo, institucional y campañas de alto impacto.</p>
-                <a href="#contacto" class="link-simple">VER MÁS →</a>
-                <div class="service-hover-bg" aria-hidden="true"></div>
-            </article>
-
-            <article class="service-card" data-animate="fadeInUp" style="animation-delay: 0.2s" role="listitem">
-                <div class="service-icon">
-                    <img 
-                        src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=200&q=80" 
-                        alt="Icono documental y contenido" 
-                        loading="lazy"
-                        width="80"
-                        height="80">
-                </div>
-                <h3>DOCUMENTAL & BRANDED CONTENT</h3>
-                <p>Historias reales, entrevistas, testimonios y contenido con propósito genuino.</p>
-                <a href="#contacto" class="link-simple">VER MÁS →</a>
-                <div class="service-hover-bg" aria-hidden="true"></div>
-            </article>
-
-            <article class="service-card" data-animate="fadeInUp" style="animation-delay: 0.3s" role="listitem">
-                <div class="service-icon">
-                    <img 
-                        src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&q=80" 
-                        alt="Icono contenido digital" 
-                        loading="lazy"
-                        width="80"
-                        height="80">
-                </div>
-                <h3>CONTENIDO DIGITAL</h3>
-                <p>Reels, cápsulas, contenido vertical optimizado para redes sociales.</p>
-                <a href="#contacto" class="link-simple">VER MÁS →</a>
-                <div class="service-hover-bg" aria-hidden="true"></div>
-            </article>
-
-            <article class="service-card" data-animate="fadeInUp" style="animation-delay: 0.4s" role="listitem">
-                <div class="service-icon">
-                    <img 
-                        src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&q=80" 
-                        alt="Icono fotografía profesional" 
-                        loading="lazy"
-                        width="80"
-                        height="80">
-                </div>
-                <h3>FOTOGRAFÍA</h3>
-                <p>Producto, corporativa, documental y branding visual de calidad premium.</p>
-                <a href="#contacto" class="link-simple">VER MÁS →</a>
-                <div class="service-hover-bg" aria-hidden="true"></div>
-            </article>
-        </div>
-
-        <div class="services-footer" data-animate="fadeInUp">
-            <div class="footer-icon" aria-hidden="true">
-                <img 
-                    src="ASSETS/logo2.jpg" 
-                    alt="Decoración" 
-                    loading="lazy">
-            </div>
-            <p>Diseñamos cada producción para que una misma historia pueda vivir en múltiples formatos y canales, maximizando su alcance e impacto.</p>
-    </section>
-
-    <!-- PROYECTOS DESTACADOS -->
-    <section id="proyectos" class="projects-section" aria-label="Proyectos destacados">
-        <div class="section-container">
-
-            <div class="projects-header" data-animate="fadeInUp">
-                <span class="section-subtitle">NUESTRO TRABAJO
-
-                <h2 class="section-title">Proyectos que generan impacto.</h2>
-                <p class="projects-desc">Casos de éxito de marcas y organizaciones que eligieron Ciclo Studio.</p>
-            </div>
-
-            <div class="projects-grid" role="list">
-                <article class="project-card" data-animate="fadeInUp" role="listitem">
-                    <div class="project-image">
-                        <img 
-                            src="ASSETS/V2.mp4" 
-                            alt="Proyecto de campaña de marca sostenible" 
-                            loading="lazy"
-                            width="500"
-                            height="350">
+        <!-- STATS SECTION -->
+        <section class="stats-section" aria-label="Nuestros logros">
+            <div class="section-container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Producción Consciente</div>
                     </div>
-                    <div class="project-info">
-                        <h3>Campaña Sostenibilidad</h3>
-                        <p class="project-category">Branded Content</p>
-                        <p class="project-desc">Documental sobre iniciativas ambientales de marca global. 2M+ vistas.</p>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Proyectos Realizados</div>
                     </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1M+</div>
+                        <div class="stat-label">Vistas Acumuladas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Compromiso Sustentable</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="servicios" class="services-section" aria-label="Nuestros servicios">
+            <div class="services-header">
+                <div>
+                    <span class="section-subtitle">QUÉ HACEMOS</span>
+                    <h2 class="section-title">Contenido audiovisual<br>que conecta e inspira.</h2>
+                </div>
+                <p class="services-desc">Soluciones creativas para comunicar tu mensaje en cualquier formato y plataforma.</p>
+            </div>
+            
+            <div class="services-grid">
+                <article class="service-card">
+                    <div>
+                        <div class="service-icon">
+                            <img src="assets/logo.png" alt="Icono producción audiovisual" width="80" height="80" loading="lazy">
+                        </div>
+                        <h3>PRODUCCIÓN AUDIOVISUAL</h3>
+                        <p>Publicidad, corporativo, institucional y campañas de alto impacto.</p>
+                    </div>
+                    <a href="#contacto" class="link-accent">VER MÁS →</a>
                 </article>
 
-                <article class="project-card" data-animate="fadeInUp" role="listitem">
-                    <div class="project-image">
-                        <img 
-                            src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80" 
-                            alt="Mockup de serie digital y contenido para redes sociales" 
-                            loading="lazy"
-                            width="500"
-                            height="350">
+                <article class="service-card">
+                    <div>
+                        <div class="service-icon">
+                            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=200&q=80" alt="Icono documental y contenido" width="80" height="80" loading="lazy">
+                        </div>
+                        <h3>DOCUMENTAL & BRANDED CONTENT</h3>
+                        <p>Historias reales, entrevistas, testimonios y contenido con propósito genuino.</p>
                     </div>
-                    <div class="project-info">
-                        <h3>Serie Digital Tech</h3>
-                        <p class="project-category">Contenido Digital</p>
-                        <p class="project-desc">5 episodios de cápsulas de educación financiera. Alcance: 500k usuarios.</p>
-                    </div>
+                    <a href="#contacto" class="link-accent">VER MÁS →</a>
                 </article>
 
-                <article class="project-card" data-animate="fadeInUp" role="listitem">
-                    <div class="project-image">
-                        <img src="ASSETS/V4.mp4" 
-                            alt="Proyecto de fotografía de producto de lujo" 
-                            loading="lazy"
-                            width="500"
-                            height="350">
+                <article class="service-card">
+                    <div>
+                        <div class="service-icon">
+                            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=200&q=80" alt="Icono contenido digital" width="80" height="80" loading="lazy">
+                        </div>
+                        <h3>CONTENIDO DIGITAL</h3>
+                        <p>Reels, cápsulas, contenido vertical optimizado para redes sociales.</p>
                     </div>
-                    <div class="project-info">
-                        <h3>Catálogo de Lujo</h3>
-                        <p class="project-category">Fotografía</p>
-                        <p class="project-desc">Sesión de 120+ imágenes de producto para marca de joyería premium.</p>
+                    <a href="#contacto" class="link-accent">VER MÁS →</a>
+                </article>
+
+                <article class="service-card">
+                    <div>
+                        <div class="service-icon">
+                            <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&q=80" alt="Icono fotografía profesional" width="80" height="80" loading="lazy">
+                        </div>
+                        <h3>FOTOGRAFÍA</h3>
+                        <p>Producto, corporativa, documental y branding visual de calidad premium.</p>
                     </div>
+                    <a href="#contacto" class="link-accent">VER MÁS →</a>
                 </article>
             </div>
 
-            <div class="projects-cta" data-animate="fadeInUp">
-                <a href="#contacto" class="btn btn-primary">VER MÁS PROYECTOS</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ENFOQUE / PROCESO -->
-    <section id="enfoque" class="process-section" aria-label="Nuestro proceso de trabajo">
-        <div class="section-container">
-            <div class="process-header" data-animate="fadeInUp">
-                <span class="section-subtitle">CÓMO TRABAJAMOS</span>
-                <h2 class="section-title">Un proceso colaborativo y transparente.</h2>
-            </div>
-
-            <div class="process-steps" role="list">
-                <div class="process-step" data-animate="fadeInUp" style="animation-delay: 0.1s" role="listitem">
-                    <div class="step-number">01</div>
-                    <h3>BRIEF & ESTRATEGIA</h3>
-                    <p>Entendemos profundamente tu marca, audiencia y objetivos para diseñar una estrategia de contenido a medida.</p>
+            <div class="services-footer">
+                <div class="footer-icon">
+                    <img src="assets/logo2.jpg" alt="Decoración Ciclo Studio" loading="lazy">
                 </div>
-                <div class="process-step" data-animate="fadeInUp" style="animation-delay: 0.2s" role="listitem">
-                    <div class="step-number">02</div>
-                    <h3>PREPRODUCCIÓN</h3>
-                    <p>Planificacion exhaustiva: Guiones, locaciones, casting, detalles técnicos y logistica de rodaje.</p>
+                <p>Diseñamos cada producción para que una misma historia pueda vivir en múltiples formatos y canales, maximizando su alcance e impacto.</p>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="proyectos" class="projects-section" aria-label="Proyectos destacados">
+            <div class="section-container">
+                <div class="projects-header">
+                    <span class="section-subtitle">NUESTRO TRABAJO</span>
+                    <h2 class="section-title">Proyectos que generan impacto.</h2>
+                    <p class="projects-desc">Casos de éxito de marcas y organizaciones que eligieron Ciclo Studio.</p>
                 </div>
-                <div class="process-step" data-animate="fadeInUp" style="animation-delay: 0.3s" role="listitem">
-                    <div class="step-number">03</div>
-                    <h3>PRODUCCIÓN</h3>
-                    <p>Ejecucion en terreno o estudio con equipo profesional y direccion creativa de calidad cinematográfica, sostenibilidad y atención al detalle.</p>
+
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <video autoplay loop muted playsinline preload="metadata">
+                                <source src="assets/v2.mp4" type="video/mp4">
+                                Tu navegador no soporta video HTML5.
+                            </video>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Branded Content</span>
+                            <h3>Campaña Sostenibilidad</h3>
+                            <p class="project-desc">Documental sobre iniciativas ambientales de marca global. 2M+ vistas.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80" alt="Mockup de serie digital y contenido para redes sociales" width="500" height="350" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Contenido Digital</span>
+                            <h3>Serie Digital Tech</h3>
+                            <p class="project-desc">5 episodios de cápsulas de educación financiera. Alcance: 500k usuarios.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <video autoplay loop muted playsinline preload="metadata">
+                                <source src="assets/v4.mp4" type="video/mp4">
+                                Tu navegador no soporta video HTML5.
+                            </video>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Fotografía & Video</span>
+                            <h3>Catálogo de Lujo</h3>
+                            <p class="project-desc">Sesión de 120+ imágenes de producto y reel comercial para marca premium.</p>
+                        </div>
+                    </article>
                 </div>
-                <div class="process-step" data-animate="fadeInUp" style="animation-delay: 0.4s" role="listitem">
-                    <div class="step-number">04</div>
-                    <h3>POSTPRODUCCIÓN</h3>
-                    <p>Edicion, color grading, sound design, efectos finales para un resultado pulido y adaptamos el contenido para múltiples plataformas.</p>
+
+                <div class="projects-cta">
+                    <a href="#contacto" class="btn btn-outline">VER MÁS PROYECTOS</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- TESTIMONIOS (ACTIVO Y OPTIMIZADO PARA CRO) -->
-    <section id="testimonios" class="testimonials-section" aria-label="Testimonios de clientes">
-        <div class="section-container">
-            <div class="testimonials-header" data-animate="fadeInUp">
-                <span class="section-subtitle">LO QUE DICEN</span>
-                <h2 class="section-title">Clientes que confían en nosotros.</h2>
-            </div>
-
-            <div class="testimonials-grid" role="list">
-                <article class="testimonial-card" data-animate="fadeInUp" role="listitem">
-                    <div class="testimonial-stars" aria-label="Calificación 5 estrellas">
-                        <span>★★★★★</span>
-                    </div>
-                    <p class="testimonial-text">"Ciclo Studio transformó nuestra visión en una pieza audiovisual que superó todas nuestras expectativas. El equipo fue profesional, creativo y muy atento a nuestras necesidades."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img 
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&q=80" 
-                                alt="Avatar de María González, Directora de Marketing en TechCorp" 
-                                loading="lazy"
-                                width="60"
-                                height="60">
-                        </div>
-                        <div class="author-info">
-                            <p class="author-name">María González</p>
-                            <p class="author-role">Directora de Marketing, TechCorp</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="testimonial-card" data-animate="fadeInUp" role="listitem">
-                    <div class="testimonial-stars" aria-label="Calificación 5 estrellas">
-                        <span>★★★★★</span>
-                    </div>
-                    <p class="testimonial-text">"El contenido que crearon para nosotros generó 2 millones de visualizaciones en el primer mes. Un verdadero impacto en nuestra estrategia digital."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img 
-                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80" 
-                                alt="Avatar de Carlos Mendez, CEO de Startups Innovation Hub" 
-                                loading="lazy"
-                                width="60"
-                                height="60">
-                        </div>
-                        <div class="author-info">
-                            <p class="author-name">Carlos Mendez</p>
-                            <p class="author-role">CEO, Startups Innovation Hub</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="testimonial-card" data-animate="fadeInUp" role="listitem">
-                    <div class="testimonial-stars" aria-label="Calificación 5 estrellas">
-                        <span>★★★★★</span>
-                    </div>
-                    <p class="testimonial-text">"Lo que más valoramos fue su compromiso con la sostenibilidad. No solo nos dieron un gran producto, sino con conciencia ambiental."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img 
-                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&q=80" 
-                                alt="Avatar de Laura Rodríguez, Fundadora de EcoVentures" 
-                                loading="lazy"
-                                width="60"
-                                height="60">
-                        </div>
-                        <div class="author-info">
-                            <p class="author-name">Laura Rodríguez</p>
-                            <p class="author-role">Fundadora, EcoVentures</p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACTO MEJORADO -->
-    <section id="contacto" class="contact-section" aria-label="Formulario de contacto">
-        <div class="section-container">
-            <div class="contact-content" data-animate="fadeInUp">
-                <div class="contact-text">
-                    <h2 class="contact-title">¿Qué quieres<br><span class="text-accent">contar?</span></h2>
-                    <p>Cuéntanos tu idea. No necesitas tener todo definido, nosotros te ayudamos a darle forma y a hacerla realidad.</p>
-                    <img 
-                        src="assets/ciclostudio.png" 
-                        alt="Camarógrafo profesional trabajando en set" 
-                        class="contact-img"
-                        loading="lazy"
-                        width="500"
-                        height="600">
+        <!-- PROCESS SECTION -->
+        <section id="enfoque" class="process-section" aria-label="Nuestro proceso de trabajo">
+            <div class="section-container">
+                <div class="process-header">
+                    <span class="section-subtitle">CÓMO TRABAJAMOS</span>
+                    <h2 class="section-title">Un proceso colaborativo y transparente.</h2>
                 </div>
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm" method="POST" action="#" novalidate>
-                        <fieldset>
-                            <legend class="sr-only">Formulario de contacto</legend>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <input 
-                                        type="text" 
-                                        placeholder="Nombre completo" 
-                                        name="nombre"
-                                        required
-                                        aria-required="true"
-                                        aria-label="Nombre">
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h3>BRIEF & ESTRATEGIA</h3>
+                        <p>Entendemos profundamente tu marca, audiencia y objetivos para diseñar una estrategia de contenido a medida.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h3>PREPRODUCCIÓN</h3>
+                        <p>Planificación exhaustiva: Guiones, locaciones, casting, detalles técnicos y logística de rodaje sostenible.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h3>PRODUCCIÓN</h3>
+                        <p>Ejecución en terreno o estudio con equipo profesional y dirección creativa de calidad cinematográfica.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <h3>POSTPRODUCCIÓN</h3>
+                        <p>Edición, color grading, sound design, efectos finales y adaptación del contenido para múltiples plataformas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonios" class="testimonials-section" aria-label="Testimonios de clientes">
+            <div class="section-container">
+                <div class="testimonials-header">
+                    <span class="section-subtitle">LO QUE DICEN</span>
+                    <h2 class="section-title">Clientes que confían en nosotros.</h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <article class="testimonial-card">
+                        <div>
+                            <div class="testimonial-stars" aria-label="Calificación 5 estrellas">★★★★★</div>
+                            <p class="testimonial-text">"Ciclo Studio transformó nuestra visión en una pieza audiovisual que superó todas nuestras expectativas. El equipo fue profesional, creativo y muy atento."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&q=80" alt="María González" width="48" height="48" loading="lazy">
+                            </div>
+                            <div>
+                                <div class="author-name">María González</div>
+                                <div class="author-role">Directora de Marketing, TechCorp</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div>
+                            <div class="testimonial-stars" aria-label="Calificación 5 estrellas">★★★★★</div>
+                            <p class="testimonial-text">"El contenido que crearon para nosotros generó 2 millones de visualizaciones en el primer mes. Un verdadero impacto en nuestra estrategia digital."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80" alt="Carlos Méndez" width="48" height="48" loading="lazy">
+                            </div>
+                            <div>
+                                <div class="author-name">Carlos Méndez</div>
+                                <div class="author-role">CEO, Startups Innovation Hub</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div>
+                            <div class="testimonial-stars" aria-label="Calificación 5 estrellas">★★★★★</div>
+                            <p class="testimonial-text">"Lo que más valoramos fue su compromiso con la sostenibilidad. No solo nos dieron un gran producto, sino producido con conciencia ambiental."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&q=80" alt="Laura Rodríguez" width="48" height="48" loading="lazy">
+                            </div>
+                            <div>
+                                <div class="author-name">Laura Rodríguez</div>
+                                <div class="author-role">Fundadora, EcoVentures</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contacto" class="contact-section" aria-label="Formulario de contacto">
+            <div class="section-container">
+                <div class="contact-content">
+                    <div class="contact-text">
+                        <h2 class="contact-title">¿Qué quieres<br><span class="gradient-text">contar?</span></h2>
+                        <p>Cuéntanos tu idea. No necesitas tener todo definido, nosotros te ayudamos a darle forma y a hacerla realidad.</p>
+                        <img src="assets/ciclostudio.png" alt="Camarógrafo profesional trabajando en set" class="contact-img" width="500" height="380" loading="lazy">
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form class="contact-form" action="#" method="POST">
+                            <fieldset>
+                                <legend class="sr-only">Formulario para enviar tu proyecto</legend>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre *" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" id="email" name="email" placeholder="Tu Email *" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono">
+                                    </div>
+                                    <div class="form-group">
+                                        <select id="servicio" name="servicio">
+                                            <option value="" disabled selected>Tipo de Servicio</option>
+                                            <option value="produccion">Producción Audiovisual</option>
+                                            <option value="documental">Documental & Branded Content</option>
+                                            <option value="digital">Contenido Digital / Social</option>
+                                            <option value="fotografia">Fotografía Profesional</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <input 
-                                        type="email" 
-                                        placeholder="tu@email.com" 
-                                        name="email"
-                                        required
-                                        aria-required="true"
-                                        aria-label="Email">
+                                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto o idea *" required></textarea>
                                 </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <input 
-                                        type="text" 
-                                        placeholder="Empresa / Organización" 
-                                        name="empresa"
-                                        aria-label="Empresa">
-                                </div>
-                                <div class="form-group">
-                                    <input 
-                                        type="tel" 
-                                        placeholder="+56 9 XXXX XXXX" 
-                                        name="telefono"
-                                        aria-label="Teléfono">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <select 
-                                    name="servicio" 
-                                    required
-                                    aria-required="true"
-                                    aria-label="Selecciona un servicio">
-                                    <option value="" disabled selected>¿Qué servicio te interesa?</option>
-                                    <option value="audiovisual">Producción Audiovisual</option>
-                                    <option value="documental">Documental & Branded Content</option>
-                                    <option value="digital">Contenido Digital</option>
-                                    <option value="fotografia">Fotografía</option>
-                                    <option value="otro">Otro / Consulta personalizada</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <textarea 
-                                    placeholder="Cuéntanos sobre tu proyecto, idea, audiencia o lo que tengas en mente..." 
-                                    name="mensaje"
-                                    rows="5" 
-                                    required
-                                    aria-required="true"
-                                    aria-label="Mensaje"></textarea>
-                            </div>
-
-                            <label class="checkbox-container">
-                                <input 
-                                    type="checkbox" 
-                                    name="privacidad"
-                                    required
-                                    aria-required="true">
-                                <span>He leído y acepto la <a href="#" target="_blank">Política de Privacidad</a> y autorizo el uso de mis datos para contactarme.</span>
-                            </label>
-
-                            <button 
-                                type="submit" 
-                                class="btn btn-primary"
-                                aria-label="Enviar formulario">
-                                <span>ENVIAR PROYECTO</span>
-                                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </button>
-
-                            <p class="form-note">Nos pondremos en contacto en máximo 48 horas.</p>
-                        </fieldset>
-                    </form>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" required>
+                                    <span>Acepto la <a href="#">Política de Privacidad</a> y los términos de servicio.</span>
+                                </label>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">ENVIAR MENSAJE →</button>
+                                <p class="form-note">Te responderemos en menos de 24 horas hábiles.</p>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- FOOTER MEJORADO -->
+    <!-- FOOTER -->
     <footer class="footer" role="contentinfo" aria-label="Pie de página">
         <div class="footer-content">
-            <div class="footer-section footer-logo">
+            <div class="footer-logo">
                 <a href="#inicio" aria-label="Volver al inicio">
-                    <img 
-                        src="assets/logo.png" 
-                        alt="Ciclo Studio" 
-                        loading="lazy"
-                        width="120"
-                        height="40">
-                        
-                        
+                    <img src="assets/logo.png" alt="Ciclo Studio" width="120" height="40" loading="lazy">
                 </a>
-                <p>Narrativas que dejan impacto.<br>No basura.</p>
+                <p style="margin-top: 0.5rem;">Narrativas que dejan impacto.<br>No basura.</p>
             </div>
 
-            <nav class="footer-section" aria-label="Enlaces de navegación rápida">
+            <nav aria-label="Enlaces de navegación rápida">
                 <ul class="footer-links">
                     <li><a href="#nosotros">NOSOTROS</a></li>
                     <li><a href="#servicios">SERVICIOS</a></li>
@@ -1695,24 +1507,43 @@
                 </ul>
             </nav>
 
-            <nav class="footer-section social-links" aria-label="Redes sociales">
+            <div class="social-links" aria-label="Redes sociales">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
-                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
                 <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" aria-label="Mira nuestro portafolio en Vimeo">
-                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.396 7.164c-.093 2.026-1.507 4.799-4.245 8.32-2.817 3.642-5.201 5.463-7.156 5.463-1.216 0-2.245-.56-3.086-1.684-.794-1.07-1.587-3.21-2.381-6.422-.514-2.074-1.07-3.111-1.668-3.111-.122 0-.542.257-1.26.77l-.76-.98c.84-.738 1.668-1.476 2.486-2.214 1.121-1.004 1.962-1.532 2.523-1.588 1.332-.14 2.149.771 2.453 2.733.327 2.149.56 3.481.7 3.995.42 1.846.887 2.769 1.401 2.769.42 0 .934-.677 1.542-2.03.607-1.355.934-2.383.98-3.083.094-1.191-.327-1.787-1.26-1.787-.444 0-.911.103-1.401.309.911-2.986 2.639-4.434 5.186-4.34 1.892.07 2.77 1.285 2.634 3.647z"/></svg>
                 </a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Conéctanos en LinkedIn">
-                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
-            </nav>
+            </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Ciclo Studio. Todos los derechos reservados. | <a href="#" target="_blank">Política de Privacidad</a> | <a href="#" target="_blank">Términos de Servicio</a></p>
+            <p>© 2026 Ciclo Studio. Todos los derechos reservados. | <a href="#" target="_blank">Política de Privacidad</a> | <a href="#" target="_blank">Términos de Servicio</a></p>
         </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <!-- Script ligero para Menú Mobile -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            if (toggleBtn && navMenu) {
+                toggleBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
