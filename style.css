@@ -1,0 +1,198 @@
+:root {
+  /* Verde futurista electrizante & viral */
+  --primary-neon: #00FF66; /* Verde cibernético hiper-saturado y más legible */
+  --primary-glow: rgba(0, 255, 102, 0.45);
+  
+  /* Fondos con matiz deep-space en lugar de negro plano */
+  --bg-dark: #050B08;
+  --surface-dark: #0D1612;
+  --text-main: #ECFDF5;
+}
+
+/* Efecto Cyber Glow Premium */
+.futuristic-card {
+  background: rgba(13, 22, 18, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 255, 102, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 
+              0 0 20px rgba(0, 255, 102, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.futuristic-card:hover {
+  border-color: var(--primary-neon);
+  box-shadow: 0 0 30px var(--primary-glow),
+              inset 0 0 15px rgba(0, 255, 102, 0.1);
+  transform: translateY(-2px);
+}
+
+
+.contenedor-tarjetas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* Impide que pasen a la siguiente fila */
+  overflow-x: auto;  /* Permite scroll horizontal si no caben en pantalla */
+  gap: 20px;          /* Espaciado entre tarjetas */
+}
+
+.tarjeta {
+  flex: 0 0 auto;    /* Evita que las tarjetas se encojan */
+  width: 300px;      /* Define un ancho fijo adecuado */
+}
+
+/* ==========================================================================
+   AJUSTE DE ESPACIADOS / SECCIONES COMPACTAS
+   ========================================================================== */
+
+/* Disminuye el espacio vertical de la sección de Servicios */
+.services-section {
+    padding-top: 4rem !important;
+    padding-bottom: 2rem !important;
+}
+
+/* Reduce la distancia superior de la tarjeta verde inferior */
+.services-footer {
+    margin-top: 1.5rem !important;
+    padding: 1.25rem 2rem !important;
+}
+
+/* Acota la separación de la sección de Proyectos y su encabezado */
+.projects-section {
+    padding-top: 2rem !important;
+    padding-bottom: 4rem !important;
+}
+
+.projects-header {
+    margin-bottom: 2.5rem !important;
+}
+
+/* Regla general para que TODAS las secciones queden más juntas y fluidas */
+.about-section,
+.process-section,
+.testimonials-section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+}
+/* ==========================================================================
+   AJUSTE DE ALTURA DEL CONTENEDOR DE VIDEO
+   ========================================================================== */
+
+/* Elimina la altura fija del marco y hace que se adapte al video */
+.about-video {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: fit-content !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    align-self: center !important; /* Alinea la caja verticalmente con el texto */
+}
+
+/* Fuerza al elemento de video o iframe a ajustar su proporcion real */
+.about-video video,
+.about-video iframe {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important; /* O cambia a la proporción exacta de tu video */
+    display: block !important;
+    object-fit: cover !important;
+}
+
+/* ==========================================================================
+   AJUSTE DE ALTURA DE VIDEO Y BANNER EN COLUMNA DERECHA
+   ========================================================================== */
+
+/* 1. Ajuste del contenedor derecho para eliminar bordes negros */
+.about-video {
+    width: 100% !important;
+    height: auto !important;
+    min-height: unset !important;
+    max-height: fit-content !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    align-self: center !important; /* Alinea la caja al centro con respecto al texto de la izquierda */
+    border-radius: 20px !important;
+}
+
+/* 2. Proporción del video para acotarlo exacto sin barras negras */
+.about-video-file,
+.about-video video,
+.about-video iframe {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important; /* Mantiene la proporcion real del video */
+    display: block !important;
+    object-fit: cover !important;
+}
+
+/* 3. Ajuste si usas una imagen/banner en la columna derecha para llenar todo */
+.about-video img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Rellena todo el espacio sin deformar la imagen */
+    object-position: center !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   HERO CON BANNER DE FONDO INTEGRADO Y DIFUMINADO
+   ========================================================================== */
+
+.hero {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 85vh !important;
+    padding: 8rem 5% 4rem 5% !important;
+    overflow: hidden !important;
+    
+    /* 1. Imagen de fondo alineada a la derecha */
+    background-image: url('assets/banner2.jpeg') !important; /* Cambia por la ruta de tu imagen */
+    background-repeat: no-repeat !important;
+    background-position: right center !important; /* La imagen predomina a la derecha */
+    background-size: cover !important; /* O usa 'contain' si quieres que no se recorte nada */
+    border-radius: 24px !important;
+}
+
+/* 2. Capa de degradado (Overlay) que oscurece e integra el texto a la izquierda */
+.hero::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    /* Va de negro/verde sólido a la izquierda para el texto, a transparente a la derecha */
+    background: linear-gradient(
+        to right, 
+        rgba(5, 11, 8, 0.95) 0%, 
+        rgba(5, 11, 8, 0.8) 22%, 
+        rgba(5, 11, 8, 0.2) 40%, 
+        rgba(5, 11, 8, 0) 100%
+    ) !important;
+    z-index: 1 !important;
+}
+
+/* 3. Mantiene el texto por encima del difuminado para que no pierda contraste */
+.hero-content {
+    position: relative !important;
+    z-index: 2 !important;
+    max-width: 670px !important; /* Evita que el texto invada demasiado la zona derecha donde luce la imagen */
+}
+
+/* ==========================================================================
+   LOGO CIRCULAR EN EL FOOTER
+   ========================================================================== */
+
+.footer-logo img {
+    width: 90px !important;         /* Define el tamaño que prefieras */
+    height: 90px !important;        /* Debe ser igual al ancho */
+    aspect-ratio: 1 / 1 !important;  /* Garantiza proporción cuadrada */
+    border-radius: 50% !important;   /* Recorta la imagen en círculo perfecto */
+    object-fit: cover !important;    /* Evita que el isotipo interno se deforme */
+    display: block !important;
+    margin-bottom: 1rem !important;  /* Separación con el texto de abajo */
+}
