@@ -1,84 +1,140 @@
+
+
+Ciclo studio optimized · HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- ============================================================
+         META TAGS CRÍTICAS - SEO & PERFORMANCE
+         ============================================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ciclo Studio - Producción audiovisual con propósito. Creamos contenido que genera impacto real y comunica de forma consciente.">
-    <meta name="keywords" content="producción audiovisual, videoproducción, contenido digital, documental, fotografía profesional, branded content, sostenibilidad">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO & DESCRIPCIÓN -->
+    <meta name="description" content="Ciclo Studio - Producción audiovisual con propósito. Creamos contenido que genera impacto real y comunica de forma consciente. Videoproducción, documentales, branded content.">
+    <meta name="keywords" content="producción audiovisual, videoproducción, contenido digital, documental, fotografía profesional, branded content, sostenibilidad, Santiago Chile">
     <meta name="author" content="Ciclo Studio">
     <meta name="theme-color" content="#050b08">
     
+    <!-- OPEN GRAPH (Redes Sociales) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ciclo Studio | Producción Audiovisual con Propósito">
+    <meta property="og:description" content="Creamos contenido audiovisual que genera impacto real y comunica de forma consciente.">
+    <meta property="og:url" content="https://ciclo.studio">
+    <meta property="og:image" content="https://ciclo.studio/assets/og-image.jpg">
+    <meta property="og:locale" content="es_CL">
+    
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ciclo Studio | Producción Audiovisual">
+    <meta name="twitter:description" content="Contenido audiovisual que genera impacto real.">
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/favicon-192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    
+    <!-- PRECONEXIONES (Performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- PREFETCH Para Recursos -->
+    <link rel="prefetch" href="assets/banner.jpg">
+    <link rel="prefetch" href="assets/video1.mp4">
+    <link rel="dns-prefetch" href="https://api.anthropic.com">
+    
     <title>Ciclo Studio | Producción Audiovisual con Propósito</title>
     
-    <!-- DATOS ESTRUCTURADOS (SEO LOCAL / PROFESIONAL) -->
+    <!-- ============================================================
+         DATOS ESTRUCTURADOS (Schema.org - JSON-LD)
+         ============================================================ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
+      "@type": "LocalBusiness",
       "name": "Ciclo Studio",
-      "image": "assets/logo.png",
+      "image": "https://ciclo.studio/assets/logo.png",
       "description": "Producción audiovisual con propósito. Creamos contenido que genera impacto real y comunica de forma consciente.",
+      "url": "https://ciclo.studio",
+      "telephone": "+56912345678",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Santiago",
-        "addressCountry": "CL"
+        "addressCountry": "CL",
+        "postalCode": "8340000"
       },
       "priceRange": "$$",
-      "url": "https://ciclo8studio-debug.github.io/CICLO-STUDIO/",
+      "areaServed": ["CL", "AR", "UY", "MX"],
       "sameAs": [
-        "https://instagram.com",
-        "https://vimeo.com",
-        "https://linkedin.com"
-      ]
+        "https://instagram.com/ciclo.studio",
+        "https://vimeo.com/ciclo",
+        "https://linkedin.com/company/ciclo-studio"
+      ],
+      "serviceType": "Video Production",
+      "knowsAbout": ["Branded Content", "Documentales", "Contenido Digital", "Fotografía"]
     }
     </script>
-
+ 
+    <!-- FONTS (Preload Critical) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap">
+ 
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+ 
+    <!-- ESTILOS INLINE (Critical Path CSS) -->
     <style>
-        /* ==========================================================================
-           CICLO STUDIO - VIRAL FUTURISTIC GREEN / GLASSMORPHISM UI DESIGN SYSTEM
-           ========================================================================== */
-
+        /* ============================================================
+           CICLO STUDIO - VIRAL FUTURISTIC GREEN / GLASSMORPHISM
+           DISEÑO SYSTEM OPTIMIZADO & PRODUCTION READY
+           ============================================================ */
+ 
         :root {
+            /* COLORES */
             --bg-dark: #050b08;
             --bg-card: rgba(13, 22, 18, 0.65);
             --bg-glass: rgba(255, 255, 255, 0.03);
             --border-glass: rgba(0, 255, 102, 0.15);
             --border-highlight: rgba(0, 255, 102, 0.5);
-
+ 
             --accent-neon: #00ff66;
             --accent-emerald: #10b981;
             --accent-lime: #a3e635;
             --accent-cyan: #06b6d4;
-
+ 
             --grad-primary: linear-gradient(135deg, #00ff66 0%, #10b981 100%);
             --grad-neon: linear-gradient(135deg, #a3e635 0%, #00ff66 100%);
             --grad-glass: linear-gradient(135deg, rgba(0, 255, 102, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
-
+ 
             --text-main: #ecfdf5;
             --text-muted: #a7f3d0;
             --text-dim: #6ee7b7;
-
+ 
+            /* FONTS */
             --font-main: 'Inter', system-ui, -apple-system, sans-serif;
             --font-title: 'Playfair Display', Georgia, serif;
-
+ 
+            /* TRANSICIONES */
             --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-
+ 
+            /* EFECTOS */
             --glow-green: 0 0 25px rgba(0, 255, 102, 0.4);
             --glow-emerald: 0 0 25px rgba(16, 185, 129, 0.4);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.8);
         }
-
-        *, *::before, *::after {
+ 
+        /* RESET GLOBAL */
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
+ 
+        /* HTML & BODY */
         html {
             scroll-behavior: smooth;
             font-size: 16px;
@@ -87,51 +143,82 @@
             font-family: var(--font-main);
             overflow-x: hidden;
         }
-
+ 
         body {
             background-color: var(--bg-dark);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            background-image: 
+            -moz-osx-font-smoothing: grayscale;
+            background-image:
                 radial-gradient(circle at 15% 20%, rgba(0, 255, 102, 0.12) 0%, transparent 40%),
                 radial-gradient(circle at 85% 60%, rgba(16, 185, 129, 0.1) 0%, transparent 45%);
             background-attachment: fixed;
         }
-
+ 
+        /* ELEMENTOS GENÉRICOS */
         a {
             color: inherit;
             text-decoration: none;
             transition: all var(--transition-fast);
         }
-
-        img, video {
+ 
+        img,
+        video {
             max-width: 100%;
             height: auto;
             display: block;
         }
-
+ 
+        /* UTILIDADES */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+ 
         .section-container {
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
-
+ 
         .gradient-text {
             background: var(--grad-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: inline-block;
         }
-
+ 
         .text-accent {
             background: var(--grad-neon);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: inline-block;
             font-weight: 800;
         }
-
+ 
+        /* REDUCIR MOVIMIENTO (Accesibilidad) */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+ 
+        /* SECCIONES & TÍTULOS */
         .section-subtitle {
             font-size: 0.75rem;
             font-weight: 800;
@@ -142,7 +229,7 @@
             margin-bottom: 0.75rem;
             text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
         }
-
+ 
         .section-title {
             font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 800;
@@ -150,7 +237,7 @@
             color: #ffffff;
             letter-spacing: -0.02em;
         }
-
+ 
         .accent-line {
             width: 60px;
             height: 3px;
@@ -159,7 +246,8 @@
             border-radius: 2px;
             box-shadow: var(--glow-green);
         }
-
+ 
+        /* BOTONES */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -178,34 +266,42 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            font-family: var(--font-main);
         }
-
+ 
         .btn-primary {
             background: var(--grad-primary);
             color: #050b08;
             font-weight: 800;
             box-shadow: var(--glow-green);
         }
-
-        .btn-primary:hover {
+ 
+        .btn-primary:hover,
+        .btn-primary:focus-visible {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 0 35px rgba(0, 255, 102, 0.6);
         }
-
+ 
+        .btn-primary:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+ 
         .btn-outline {
             background: rgba(0, 255, 102, 0.03);
             border-color: var(--border-glass);
             color: #ffffff;
             backdrop-filter: blur(10px);
         }
-
-        .btn-outline:hover {
+ 
+        .btn-outline:hover,
+        .btn-outline:focus-visible {
             border-color: var(--accent-neon);
             color: var(--accent-neon);
             box-shadow: var(--glow-green);
             transform: translateY(-2px);
         }
-
+ 
+        /* ENLACES */
         .link-accent {
             color: var(--accent-neon);
             font-weight: 700;
@@ -217,12 +313,14 @@
             margin-top: 1rem;
             min-height: 44px;
         }
-
-        .link-accent:hover {
+ 
+        .link-accent:hover,
+        .link-accent:focus-visible {
             letter-spacing: 0.1em;
             text-shadow: 0 0 10px rgba(0, 255, 102, 0.8);
         }
-
+ 
+        /* BOTÓN PLAY */
         .btn-play-large {
             width: 60px;
             height: 60px;
@@ -237,17 +335,18 @@
             transition: all var(--transition-smooth);
             fill: #ffffff;
         }
-
-        .btn-play-large:hover {
+ 
+        .btn-play-large:hover,
+        .btn-play-large:focus-visible {
             background: var(--accent-neon);
             fill: #050b08;
             transform: scale(1.1);
             box-shadow: var(--glow-green);
         }
-
-        /* ==========================================================================
-           NAVIGATION BAR & RESPONSIVE MENU
-           ========================================================================== */
+ 
+        /* ============================================================
+           NAVBAR - NAVEGACIÓN FIJA
+           ============================================================ */
         .navbar {
             position: fixed;
             top: 0;
@@ -264,21 +363,21 @@
             border-bottom: 1px solid var(--border-glass);
             transition: all var(--transition-smooth);
         }
-
+ 
         .navbar .logo img {
             height: 55px;
             width: auto;
             filter: drop-shadow(0 0 8px rgba(0, 255, 102, 0.2));
             border-radius: 8px;
         }
-
+ 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
             align-items: center;
         }
-
+ 
         .nav-link {
             font-size: 0.85rem;
             font-weight: 500;
@@ -290,7 +389,7 @@
             display: inline-flex;
             align-items: center;
         }
-
+ 
         .nav-link::after {
             content: '';
             position: absolute;
@@ -302,11 +401,17 @@
             transition: width var(--transition-fast);
             box-shadow: var(--glow-green);
         }
-
-        .nav-link:hover { color: #ffffff; }
-        .nav-link:hover::after { width: 100%; }
-
-        /* Mobile Hamburger Toggle */
+ 
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            color: #ffffff;
+        }
+ 
+        .nav-link:hover::after {
+            width: 100%;
+        }
+ 
+        /* HAMBURGER MENU */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -317,7 +422,7 @@
             gap: 6px;
             z-index: 1001;
         }
-
+ 
         .mobile-menu-btn span {
             display: block;
             width: 26px;
@@ -326,10 +431,28 @@
             border-radius: 2px;
             transition: all var(--transition-fast);
         }
-
+ 
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+ 
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+ 
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+ 
         @media (max-width: 992px) {
-            .mobile-menu-btn { display: flex; }
-            .nav-btn-desktop { display: none; }
+            .mobile-menu-btn {
+                display: flex;
+            }
+ 
+            .nav-btn-desktop {
+                display: none;
+            }
+ 
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -346,12 +469,15 @@
                 padding: 2rem;
                 transition: right var(--transition-smooth);
             }
-            .nav-links.active { right: 0; }
+ 
+            .nav-links.active {
+                right: 0;
+            }
         }
-
-        /* ==========================================================================
+ 
+        /* ============================================================
            HERO SECTION
-           ========================================================================== */
+           ============================================================ */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -360,7 +486,7 @@
             padding: 8rem 5% 4rem 5%;
             overflow: hidden;
         }
-
+ 
         .hero-bg {
             position: absolute;
             top: 0;
@@ -369,7 +495,7 @@
             height: 100%;
             z-index: -2;
         }
-
+ 
         .hero-bg img {
             width: 100%;
             height: 100%;
@@ -377,18 +503,30 @@
             filter: brightness(0.35) contrast(1.15);
             transform: scale(1.05);
         }
-
+ 
         .hero-overlay {
             position: absolute;
             inset: 0;
             background: radial-gradient(circle at 50% 50%, rgba(5, 11, 8, 0.4) 0%, var(--bg-dark) 90%);
         }
-
+ 
         .hero-content {
             max-width: 800px;
             z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
         }
-
+ 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+ 
         .badge {
             display: inline-flex;
             align-items: center;
@@ -403,7 +541,7 @@
             letter-spacing: 0.1em;
             margin-bottom: 1.5rem;
         }
-
+ 
         .badge-dot {
             width: 8px;
             height: 8px;
@@ -412,12 +550,19 @@
             box-shadow: var(--glow-green);
             animation: pulse 2s infinite;
         }
-
+ 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.8); }
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
         }
-
+ 
         .hero-title {
             font-size: clamp(2.5rem, 5.5vw, 5rem);
             font-weight: 900;
@@ -426,7 +571,7 @@
             margin-bottom: 1.5rem;
             color: #ffffff;
         }
-
+ 
         .hero-description {
             font-size: clamp(1rem, 1.8vw, 1.25rem);
             color: var(--text-muted);
@@ -434,14 +579,14 @@
             margin-bottom: 2.5rem;
             font-weight: 300;
         }
-
+ 
         .hero-actions {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
             gap: 1.5rem;
         }
-
+ 
         .scroll-indicator {
             position: absolute;
             bottom: 2rem;
@@ -456,7 +601,7 @@
             text-transform: uppercase;
             color: var(--text-dim);
         }
-
+ 
         .scroll-dot {
             width: 4px;
             height: 12px;
@@ -465,61 +610,68 @@
             animation: scrollBounce 2s infinite;
             box-shadow: var(--glow-green);
         }
-
+ 
         @keyframes scrollBounce {
-            0%, 100% { transform: translateY(0); opacity: 0.3; }
-            50% { transform: translateY(8px); opacity: 1; }
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(8px);
+                opacity: 1;
+            }
         }
-
-        /* ==========================================================================
+ 
+        /* ============================================================
            ABOUT SECTION
-           ========================================================================== */
+           ============================================================ */
         .about-section {
             padding: 7rem 0;
             position: relative;
         }
-
+ 
         .about-section .section-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
-
+ 
         @media (max-width: 992px) {
             .about-section .section-container {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
             }
         }
-
+ 
         .about-paragraph {
             color: var(--text-muted);
             margin-bottom: 1rem;
             font-size: 1.05rem;
             font-weight: 300;
         }
-
+ 
         .about-video {
             position: relative;
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid var(--border-glass);
             background: var(--bg-card);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            box-shadow: var(--shadow-lg);
             aspect-ratio: 16 / 9;
         }
-
+ 
         .about-video-file {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
-
-        /* ==========================================================================
+ 
+        /* ============================================================
            STATS SECTION
-           ========================================================================== */
+           ============================================================ */
         .stats-section {
             padding: 3rem 0;
             background: rgba(0, 255, 102, 0.015);
@@ -527,14 +679,14 @@
             border-bottom: 1px solid var(--border-glass);
             backdrop-filter: blur(10px);
         }
-
+ 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             text-align: center;
         }
-
+ 
         .stat-item {
             padding: 1.5rem;
             border-radius: 16px;
@@ -542,38 +694,39 @@
             border: 1px solid var(--border-glass);
             transition: transform var(--transition-smooth);
         }
-
+ 
         .stat-item:hover {
             transform: translateY(-5px);
             border-color: var(--border-highlight);
             box-shadow: var(--glow-green);
         }
-
+ 
         .stat-number {
             font-size: 2.5rem;
             font-weight: 900;
             background: var(--grad-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 0.25rem;
         }
-
+ 
         .stat-label {
             font-size: 0.85rem;
             color: var(--text-muted);
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
-
-        /* ==========================================================================
+ 
+        /* ============================================================
            SERVICES SECTION
-           ========================================================================== */
+           ============================================================ */
         .services-section {
             padding: 7rem 5%;
             max-width: 1280px;
             margin: 0 auto;
         }
-
+ 
         .services-header {
             display: flex;
             justify-content: space-between;
@@ -582,19 +735,19 @@
             flex-wrap: wrap;
             gap: 2rem;
         }
-
+ 
         .services-desc {
             max-width: 400px;
             color: var(--text-muted);
             font-size: 1.05rem;
         }
-
+ 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
         }
-
+ 
         .service-card {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
@@ -606,13 +759,13 @@
             flex-direction: column;
             justify-content: space-between;
         }
-
+ 
         .service-card:hover {
             transform: translateY(-8px);
             border-color: var(--border-highlight);
             box-shadow: 0 20px 40px rgba(0, 255, 102, 0.15);
         }
-
+ 
         .service-icon {
             width: 70px;
             height: 70px;
@@ -625,13 +778,13 @@
             margin-bottom: 2rem;
             overflow: hidden;
         }
-
+ 
         .service-icon img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+ 
         .service-card h3 {
             font-size: 1.1rem;
             font-weight: 800;
@@ -639,7 +792,7 @@
             margin-bottom: 1rem;
             letter-spacing: 0.02em;
         }
-
+ 
         .service-card p {
             color: var(--text-muted);
             font-size: 0.9rem;
@@ -647,7 +800,7 @@
             font-weight: 300;
             line-height: 1.5;
         }
-
+ 
         .services-footer {
             margin-top: 4rem;
             padding: 2rem;
@@ -658,126 +811,167 @@
             align-items: center;
             gap: 2rem;
         }
-
+ 
         .footer-icon img {
             width: 60px;
             height: 60px;
             border-radius: 12px;
             object-fit: cover;
         }
-
+ 
         .services-footer p {
             color: var(--text-muted);
             font-size: 0.95rem;
         }
-
-        /* ==========================================================================
-           PROJECTS SECTION
-           ========================================================================== */
+ 
+        /* ============================================================
+           PROJECTS SECTION - TIMED CARDS SLIDER
+           ============================================================ */
         .projects-section {
             padding: 7rem 0;
             position: relative;
-        }
-
-        .projects-header {
-            margin-bottom: 4rem;
-            text-align: center;
-        }
-
-        .projects-desc {
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            border: 1px solid var(--border-glass);
             overflow: hidden;
-            transition: all var(--transition-smooth);
         }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-neon);
-            box-shadow: 0 15px 35px rgba(0, 255, 102, 0.2);
+ 
+        .projects-bg-wrapper {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
         }
-
-        .project-image {
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project-image img,
-        .project-image video {
+ 
+        .projects-bg-wrapper video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
         }
-
-        .project-card:hover .project-image img,
-        .project-card:hover .project-image video {
-            transform: scale(1.08);
+ 
+        .projects-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(5, 11, 8, 0.7) 0%, rgba(5, 11, 8, 0.95) 100%);
+            z-index: 1;
         }
-
-        .project-info {
-            padding: 1.75rem;
+ 
+        .projects-container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
-
-        .project-category {
+ 
+        @media (max-width: 992px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+ 
+        .project-active-info {
+            animation: fadeInUp 0.6s ease-out;
+        }
+ 
+        .project-active-info .section-title {
+            margin-bottom: 1rem;
+        }
+ 
+        .project-active-info .project-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-top: 1rem;
+        }
+ 
+        /* TIMED CARDS */
+        .timed-cards-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+ 
+        .timed-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+ 
+        .timed-card:hover {
+            border-color: var(--border-highlight);
+            transform: translateX(8px);
+            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
+        }
+ 
+        .timed-card.active {
+            border-color: var(--accent-neon);
+            background: rgba(0, 255, 102, 0.08);
+            box-shadow: var(--glow-green);
+        }
+ 
+        .progress-bar-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(0, 255, 102, 0.1);
+            border-radius: 0;
+        }
+ 
+        .progress-bar {
+            height: 100%;
+            background: var(--grad-primary);
+            width: 0%;
+            transition: width 0.05s linear;
+            box-shadow: var(--glow-green);
+        }
+ 
+        .timed-card-content {
+            padding-top: 0.5rem;
+        }
+ 
+        .card-step {
             font-size: 0.75rem;
-            font-weight: 700;
+            font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: 0.2em;
             color: var(--accent-neon);
-            letter-spacing: 0.1em;
-            margin-bottom: 0.25rem;
-        }
-
-        .project-info h3 {
-            font-size: 1.25rem;
-            color: #ffffff;
+            display: block;
             margin-bottom: 0.5rem;
         }
-
-        .project-desc {
-            color: var(--text-muted);
-            font-size: 0.88rem;
-            font-weight: 300;
+ 
+        .timed-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
         }
-
-        .projects-cta {
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        /* ==========================================================================
+ 
+        /* ============================================================
            PROCESS SECTION
-           ========================================================================== */
+           ============================================================ */
         .process-section {
             padding: 7rem 0;
             background: rgba(0, 255, 102, 0.01);
         }
-
+ 
         .process-header {
             text-align: center;
             margin-bottom: 4rem;
         }
-
+ 
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
         }
-
+ 
         .process-step {
             padding: 2rem;
             background: var(--bg-card);
@@ -787,137 +981,60 @@
             backdrop-filter: blur(12px);
             transition: all var(--transition-smooth);
         }
-
+ 
         .process-step:hover {
             border-color: var(--accent-neon);
             transform: translateY(-5px);
             box-shadow: var(--glow-green);
         }
-
+ 
         .step-number {
             font-size: 2.5rem;
             font-weight: 900;
             background: var(--grad-neon);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
             line-height: 1;
         }
-
+ 
         .process-step h3 {
             font-size: 1rem;
             letter-spacing: 0.05em;
             color: #ffffff;
             margin-bottom: 0.75rem;
         }
-
+ 
         .process-step p {
             color: var(--text-muted);
             font-size: 0.85rem;
             font-weight: 300;
             line-height: 1.6;
         }
-
-        /* ==========================================================================
-           TESTIMONIALS SECTION
-           ========================================================================== */
-        .testimonials-section {
-            padding: 7rem 0;
-        }
-
-        .testimonials-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(12px);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all var(--transition-smooth);
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--border-highlight);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.15);
-        }
-
-        .testimonial-stars {
-            color: var(--accent-neon);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            letter-spacing: 0.1em;
-            text-shadow: var(--glow-green);
-        }
-
-        .testimonial-text {
-            color: var(--text-main);
-            font-size: 0.95rem;
-            font-style: italic;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-neon);
-        }
-
-        .author-name {
-            font-weight: 700;
-            color: #ffffff;
-            font-size: 0.9rem;
-        }
-
-        .author-role {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-        }
-
-        /* ==========================================================================
+ 
+        /* ============================================================
            CONTACT SECTION
-           ========================================================================== */
+           ============================================================ */
         .contact-section {
             padding: 8rem 0;
             background: radial-gradient(circle at 50% 50%, rgba(0, 255, 102, 0.08) 0%, transparent 60%);
         }
-
+ 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 4rem;
             align-items: center;
         }
-
+ 
         @media (max-width: 992px) {
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
         }
-
+ 
         .contact-title {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
@@ -925,14 +1042,14 @@
             margin-bottom: 1.5rem;
             color: #ffffff;
         }
-
+ 
         .contact-text p {
             color: var(--text-muted);
             font-size: 1.05rem;
             margin-bottom: 2rem;
             font-weight: 300;
         }
-
+ 
         .contact-img {
             border-radius: 20px;
             border: 1px solid var(--border-glass);
@@ -940,34 +1057,36 @@
             width: 100%;
             object-fit: cover;
         }
-
+ 
         .contact-form-container {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
             border-radius: 28px;
             padding: 2.5rem;
             backdrop-filter: blur(20px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            box-shadow: var(--shadow-lg);
         }
-
+ 
         .contact-form fieldset {
             border: none;
         }
-
+ 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.25rem;
         }
-
+ 
         @media (max-width: 600px) {
-            .form-row { grid-template-columns: 1fr; }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
-
+ 
         .form-group {
             margin-bottom: 1.25rem;
         }
-
+ 
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -982,7 +1101,12 @@
             outline: none;
             transition: all var(--transition-fast);
         }
-
+ 
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+ 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
@@ -990,12 +1114,12 @@
             background: rgba(0, 255, 102, 0.05);
             box-shadow: var(--glow-green);
         }
-
+ 
         .form-group select option {
             background-color: var(--bg-dark);
             color: var(--text-main);
         }
-
+ 
         .checkbox-container {
             display: flex;
             align-items: flex-start;
@@ -1005,33 +1129,50 @@
             margin-bottom: 1.5rem;
             cursor: pointer;
         }
-
+ 
         .checkbox-container input {
             margin-top: 0.2rem;
             accent-color: var(--accent-neon);
+            cursor: pointer;
         }
-
+ 
         .checkbox-container a {
             color: var(--accent-neon);
             text-decoration: underline;
         }
-
+ 
         .form-note {
             font-size: 0.75rem;
             color: var(--text-dim);
             margin-top: 1rem;
             text-align: center;
         }
-
-        /* ==========================================================================
+ 
+        .form-error {
+            color: #ff6b6b;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+ 
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #ff6b6b;
+        }
+ 
+        .form-group.error .form-error {
+            display: block;
+        }
+ 
+        /* ============================================================
            FOOTER
-           ========================================================================== */
+           ============================================================ */
         .footer {
             border-top: 1px solid var(--border-glass);
             background: rgba(3, 7, 5, 0.95);
             padding: 5rem 5% 2rem 5%;
         }
-
+ 
         .footer-content {
             max-width: 1280px;
             margin: 0 auto;
@@ -1039,22 +1180,22 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 3rem;
-            margin-bottom: 4rem;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
         }
-
+ 
         .footer-logo p {
             color: var(--text-dim);
             font-size: 0.85rem;
         }
-
+ 
         .footer-links {
             display: flex;
             list-style: none;
             gap: 2rem;
             flex-wrap: wrap;
         }
-
+ 
         .footer-links a {
             font-size: 0.8rem;
             font-weight: 700;
@@ -1064,16 +1205,17 @@
             display: inline-flex;
             align-items: center;
         }
-
-        .footer-links a:hover {
+ 
+        .footer-links a:hover,
+        .footer-links a:focus-visible {
             color: var(--accent-neon);
         }
-
+ 
         .social-links {
             display: flex;
             gap: 1rem;
         }
-
+ 
         .social-links a {
             width: 44px;
             height: 44px;
@@ -1085,69 +1227,77 @@
             justify-content: center;
             fill: var(--text-muted);
             transition: all var(--transition-fast);
+            min-height: 44px;
         }
-
-        .social-links a:hover {
+ 
+        .social-links a:hover,
+        .social-links a:focus-visible {
             fill: #ffffff;
             border-color: var(--accent-neon);
             box-shadow: var(--glow-green);
             transform: translateY(-3px);
         }
-
+ 
         .footer-bottom {
-            max-width: 1280px;
+            max-width: 1000px;
             margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid rgba(0, 255, 102, 0.05);
+            border-top: 0.5px solid rgba(0, 255, 102, 0.05);
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.95rem;
             color: var(--text-dim);
         }
-
+ 
         .footer-bottom a {
             color: var(--text-muted);
         }
+ 
+        .footer-bottom a:hover {
+            color: var(--accent-neon);
+        }
     </style>
 </head>
-
+ 
 <body>
-
-    <!-- NAVIGATION BAR -->
+    <!-- ============================================================
+         NAVIGATION BAR
+         ============================================================ -->
     <header>
         <nav class="navbar" aria-label="Navegación principal">
             <a href="#inicio" class="logo" aria-label="Ciclo Studio - Inicio">
-                <img src="assets/logo2.png" alt="Ciclo Studio Logo" loading="eager">
+                <img src="assets/logo2.png" alt="Ciclo Studio Logo" width="120" height="55" loading="eager">
             </a>
-
-            <button class="mobile-menu-btn" aria-label="Abrir menú de navegación" id="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+ 
+            <button class="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-controls="nav-menu" aria-expanded="false" id="mobile-menu-toggle">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
-
+ 
             <ul class="nav-links" id="nav-menu">
                 <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
                 <li><a href="#servicios" class="nav-link">Servicios</a></li>
                 <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
                 <li><a href="#enfoque" class="nav-link">Enfoque</a></li>
-                <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
-
+ 
             <a href="#contacto" class="btn btn-outline nav-btn-desktop" aria-label="Ir a contacto">
                 CUÉNTANOS TU PROYECTO →
             </a>
         </nav>
     </header>
-
+ 
     <main id="inicio">
-        <!-- HERO SECTION -->
+        <!-- ============================================================
+             HERO SECTION
+             ============================================================ -->
         <section class="hero" aria-label="Sección principal">
             <div class="hero-bg">
                 <img src="assets/banner.jpg" alt="Camarógrafo profesional grabando en la naturaleza" width="1600" height="900" loading="eager">
                 <div class="hero-overlay"></div>
             </div>
-
+ 
             <div class="hero-content">
                 <div class="badge">
                     <span class="badge-dot"></span>
@@ -1165,18 +1315,20 @@
                 <div class="hero-actions">
                     <a href="#contacto" class="btn btn-primary" aria-label="Cuéntanos tu historia">
                         <span>CUÉNTANOS TU HISTORIA</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
-
+ 
             <div class="scroll-indicator" aria-hidden="true">
                 <div class="scroll-dot"></div>
                 <span>Desplaza para explorar</span>
             </div>
         </section>
-
-        <!-- ABOUT SECTION -->
+ 
+        <!-- ============================================================
+             ABOUT SECTION
+             ============================================================ -->
         <section id="nosotros" class="about-section" aria-label="Sobre nosotros">
             <div class="section-container">
                 <div class="about-text">
@@ -1189,14 +1341,17 @@
                     <a href="#contacto" class="link-accent">CONOCE MÁS SOBRE NUESTRO ENFOQUE →</a>
                 </div>
                 <div class="about-video">
-                    <video class="about-video-file" autoplay loop muted playsinline preload="none" poster="assets/banner.jpg" src="assets/video1.mp4">
+                    <video class="about-video-file" autoplay loop muted playsinline preload="none" poster="assets/banner.jpg">
+                        <source src="assets/video1.mp4" type="video/mp4">
                         Tu navegador no soporta la reproducción de video.
                     </video>
                 </div>
             </div>
         </section>
-
-        <!-- STATS SECTION -->
+ 
+        <!-- ============================================================
+             STATS SECTION
+             ============================================================ -->
         <section class="stats-section" aria-label="Nuestros logros">
             <div class="section-container">
                 <div class="stats-grid">
@@ -1219,8 +1374,10 @@
                 </div>
             </div>
         </section>
-
-        <!-- SERVICES SECTION -->
+ 
+        <!-- ============================================================
+             SERVICES SECTION
+             ============================================================ -->
         <section id="servicios" class="services-section" aria-label="Nuestros servicios">
             <div class="services-header">
                 <div>
@@ -1238,10 +1395,10 @@
                         </div>
                         <h3>PRODUCCIÓN AUDIOVISUAL</h3>
                         <p>Publicidad, corporativo, institucional y campañas de alto impacto.</p>
-                    </div>
-                    <a href="#contacto" class="link-accent">VER MÁS →</a>
+                    <!-- </div>
+                    <a href="#contacto" class="link-accent">VER MÁS →</a> -->
                 </article>
-
+ 
                 <article class="service-card">
                     <div>
                         <div class="service-icon">
@@ -1249,10 +1406,10 @@
                         </div>
                         <h3>DOCUMENTAL & BRANDED CONTENT</h3>
                         <p>Historias reales, entrevistas, testimonios y contenido con propósito genuino.</p>
-                    </div>
-                    <a href="#contacto" class="link-accent">VER MÁS →</a>
+                    <!-- </div>
+                    <a href="#contacto" class="link-accent">VER MÁS →</a> -->
                 </article>
-
+ 
                 <article class="service-card">
                     <div>
                         <div class="service-icon">
@@ -1260,10 +1417,10 @@
                         </div>
                         <h3>CONTENIDO DIGITAL</h3>
                         <p>Reels, cápsulas, contenido vertical optimizado para redes sociales.</p>
-                    </div>
-                    <a href="#contacto" class="link-accent">VER MÁS →</a>
+                    <!-- </div>
+                    <a href="#contacto" class="link-accent">VER MÁS →</a> -->
                 </article>
-
+ 
                 <article class="service-card">
                     <div>
                         <div class="service-icon">
@@ -1271,43 +1428,45 @@
                         </div>
                         <h3>FOTOGRAFÍA</h3>
                         <p>Producto, corporativa, documental y branding visual de calidad premium.</p>
-                    </div>
-                    <a href="#contacto" class="link-accent">VER MÁS →</a>
+                    <!-- </div>
+                    <a href="#contacto" class="link-accent">VER MÁS →</a> -->
                 </article>
             </div>
-
+<!--  
             <div class="services-footer">
                 <div class="footer-icon">
                     <img src="assets/s1.jpeg" alt="Decoración Ciclo Studio" width="100" height="100" loading="lazy">
                 </div>
                 <p>Diseñamos cada producción para que una misma historia pueda vivir en múltiples formatos y canales, maximizando su alcance e impacto.</p>
             </div>
-        </section>
-<!-- PROJECTS SECTION (TIMED CARDS SLIDER) -->
+        </section> -->
+ 
+        <!-- ============================================================
+             PROJECTS SECTION - TIMED CARDS SLIDER
+             ============================================================ -->
         <section id="proyectos" class="projects-section" aria-label="Proyectos destacados">
-            <!-- Video de fondo dinámico -->
             <div class="projects-bg-wrapper">
-                <video id="bg-video-player" autoplay loop muted playsinline preload="auto" src="assets/video2.mp4"></video>
+                <video id="bg-video-player" autoplay loop muted playsinline preload="auto" src="assets/video2.mp4" aria-hidden="true"></video>
                 <div class="projects-bg-overlay"></div>
             </div>
-
+ 
             <div class="section-container projects-container">
-                <!-- Información principal del video activo -->
                 <div class="project-active-info">
                     <span class="section-subtitle" id="active-category">BRANDED CONTENT</span>
                     <h2 class="section-title" id="active-title">Campaña Sostenibilidad</h2>
                     <p class="project-desc" id="active-desc">Documental sobre iniciativas ambientales de marca global. 2M+ vistas.</p>
                 </div>
-
-                <!-- Tarjetas flotantes laterales -->
-                <div class="timed-cards-wrapper">
-                    <!-- Tarjeta 1 -->
+ 
+                <div class="timed-cards-wrapper" role="tablist" aria-label="Proyectos destacados">
                     <article class="timed-card active" 
+                             role="tab"
+                             tabindex="0"
+                             aria-selected="true"
                              data-video="assets/video2.mp4"
                              data-category="Branded Content"
                              data-title="Campaña Sostenibilidad"
                              data-desc="Documental sobre iniciativas ambientales de marca global. 2M+ vistas.">
-                        <div class="progress-bar-container">
+                        <div class="progress-bar-container" aria-hidden="true">
                             <div class="progress-bar"></div>
                         </div>
                         <div class="timed-card-content">
@@ -1315,14 +1474,16 @@
                             <h3>Campaña Sostenibilidad</h3>
                         </div>
                     </article>
-
-                    <!-- Tarjeta 2 -->
+ 
                     <article class="timed-card" 
+                             role="tab"
+                             tabindex="-1"
+                             aria-selected="false"
                              data-video="https://assets.mixkit.co/videos/preview/mixkit-top-aerial-shot-of-seashore-4101-large.mp4"
                              data-category="Contenido Digital"
                              data-title="Serie Digital Tech"
                              data-desc="5 episodios de cápsulas de educación financiera. Alcance: 500k usuarios.">
-                        <div class="progress-bar-container">
+                        <div class="progress-bar-container" aria-hidden="true">
                             <div class="progress-bar"></div>
                         </div>
                         <div class="timed-card-content">
@@ -1330,14 +1491,16 @@
                             <h3>Serie Digital Tech</h3>
                         </div>
                     </article>
-
-                    <!-- Tarjeta 3 -->
+ 
                     <article class="timed-card" 
+                             role="tab"
+                             tabindex="-1"
+                             aria-selected="false"
                              data-video="assets/video4.mp4"
                              data-category="Fotografía & Video"
                              data-title="Catálogo de Lujo"
                              data-desc="Sesión de 120+ imágenes de producto y reel comercial para marca premium.">
-                        <div class="progress-bar-container">
+                        <div class="progress-bar-container" aria-hidden="true">
                             <div class="progress-bar"></div>
                         </div>
                         <div class="timed-card-content">
@@ -1348,71 +1511,17 @@
                 </div>
             </div>
         </section>
-
-        <!-- PROJECTS SECTION
-        <section id="proyectos" class="projects-section" aria-label="Proyectos destacados">
-            <div class="section-container">
-                <div class="projects-header">
-                    <span class="section-subtitle">NUESTRO TRABAJO</span>
-                    <h2 class="section-title">Proyectos que generan impacto.</h2>
-                    <p class="projects-desc">Casos de éxito de marcas y organizaciones que eligieron Ciclo Studio.</p>
-                </div>
-
-                <div class="projects-grid">
-                    <article class="project-card">
-                        <div class="project-image">
-                            <video autoplay loop muted playsinline preload="metadata">
-                                <source src="assets/video2.mp4" type="video/mp4">
-                                Tu navegador no soporta video HTML5.
-                            </video>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">Branded Content</span>
-                            <h3>Campaña Sostenibilidad</h3>
-                            <p class="project-desc">Documental sobre iniciativas ambientales de marca global. 2M+ vistas.</p>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80" alt="Mockup de serie digital y contenido para redes sociales" width="500" height="350" loading="lazy">
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">Contenido Digital</span>
-                            <h3>Serie Digital Tech</h3>
-                            <p class="project-desc">5 episodios de cápsulas de educación financiera. Alcance: 500k usuarios.</p>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <video autoplay loop muted playsinline preload="metadata">
-                                <source src="assets/video4.mp4" type="video/mp4">
-                                Tu navegador no soporta video HTML5.
-                            </video>
-                        </div>
-                        <div class="project-info">
-                            <span class="project-category">Fotografía & Video</span>
-                            <h3>Catálogo de Lujo</h3>
-                            <p class="project-desc">Sesión de 120+ imágenes de producto y reel comercial para marca premium.</p>
-                        </div>
-                    </article>
-                < </div>
-
-                <div class="projects-cta">
-                    <a href="#contacto" class="btn btn-outline">VER MÁS PROYECTOS</a>
-                </div> -->
-            </div>
-        </section>
-
-        <!-- PROCESS SECTION -->
+ 
+        <!-- ============================================================
+             PROCESS SECTION
+             ============================================================ -->
         <section id="enfoque" class="process-section" aria-label="Nuestro proceso de trabajo">
             <div class="section-container">
                 <div class="process-header">
                     <span class="section-subtitle">CÓMO TRABAJAMOS</span>
                     <h2 class="section-title">Un proceso colaborativo y transparente.</h2>
                 </div>
-
+ 
                 <div class="process-steps">
                     <div class="process-step">
                         <div class="step-number">01</div>
@@ -1437,68 +1546,10 @@
                 </div>
             </div>
         </section>
-
-        <!-- TESTIMONIALS SECTION
-        <section id="testimonios" class="testimonials-section" aria-label="Testimonios de clientes">
-            <div class="section-container">
-                <div class="testimonials-header">
-                    <span class="section-subtitle">LO QUE DICEN</span>
-                    <h2 class="section-title">Clientes que confían en nosotros.</h2>
-                </div>
-
-                <div class="testimonials-grid">
-                    <article class="testimonial-card">
-                        <div>
-                            <div class="testimonial-stars" aria-label="Calificación 5 estrellas">★★★★★</div>
-                            <p class="testimonial-text">"Ciclo Studio transformó nuestra visión en una pieza audiovisual que superó todas nuestras expectativas. El equipo fue profesional, creativo y muy atento."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&q=80" alt="María González" width="48" height="48" loading="lazy">
-                            </div>
-                            <div>
-                                <div class="author-name">María González</div>
-                                <div class="author-role">Directora de Marketing, TechCorp</div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="testimonial-card">
-                        <div>
-                            <div class="testimonial-stars" aria-label="Calificación 5 estrellas">★★★★★</div>
-                            <p class="testimonial-text">"El contenido que crearon para nosotros generó 2 millones de visualizaciones en el primer mes. Un verdadero impacto en nuestra estrategia digital."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80" alt="Carlos Méndez" width="48" height="48" loading="lazy">
-                            </div>
-                            <div>
-                                <div class="author-name">Carlos Méndez</div>
-                                <div class="author-role">CEO, Startups Innovation Hub</div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="testimonial-card">
-                        <div>
-                            <div class="testimonial-stars" aria-label="Calificación 5 estrellas">★★★★★</div>
-                            <p class="testimonial-text">"Lo que más valoramos fue su compromiso con la sostenibilidad. No solo nos dieron un gran producto, sino producido con conciencia ambiental."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&q=80" alt="Laura Rodríguez" width="48" height="48" loading="lazy">
-                            </div>
-                            <div>
-                                <div class="author-name">Laura Rodríguez</div>
-                                <div class="author-role">Fundadora, EcoVentures</div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- CONTACT SECTION -->
+ 
+        <!-- ============================================================
+             CONTACT SECTION
+             ============================================================ -->
         <section id="contacto" class="contact-section" aria-label="Formulario de contacto">
             <div class="section-container">
                 <div class="contact-content">
@@ -1507,39 +1558,49 @@
                         <p>Cuéntanos tu idea. No necesitas tener todo definido, nosotros te ayudamos a darle forma y a hacerla realidad.</p>
                         <img src="assets/ciclostudio.png" alt="Camarógrafo profesional trabajando en set" class="contact-img" width="500" height="380" loading="lazy">
                     </div>
-
+ 
                     <div class="contact-form-container">
-                        <form class="contact-form" action="#" method="POST">
+                        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm" novalidate>
+                            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                            <input type="hidden" name="subject" value="Nuevo proyecto de Ciclo Studio">
+                            <input type="hidden" name="from_name" value="Ciclo Studio">
+                            <input type="hidden" name="redirect" value="https://ciclo.studio#gracias">
+ 
                             <fieldset>
                                 <legend class="sr-only">Formulario para enviar tu proyecto</legend>
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre *" required>
+                                        <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre *" required aria-required="true" aria-describedby="nombre-error">
+                                        <span class="form-error" id="nombre-error">El nombre es requerido</span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" id="email" name="email" placeholder="Tu Email *" required>
+                                        <input type="email" id="email" name="email" placeholder="Tu Email *" required aria-required="true" aria-describedby="email-error">
+                                        <span class="form-error" id="email-error">Email inválido</span>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono">
+                                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" aria-describedby="phone-optional">
+                                        <span id="phone-optional" class="sr-only">(Opcional)</span>
                                     </div>
                                     <div class="form-group">
-                                        <select id="servicio" name="servicio">
+                                        <select id="servicio" name="servicio" aria-describedby="service-optional">
                                             <option value="" disabled selected>Tipo de Servicio</option>
                                             <option value="produccion">Producción Audiovisual</option>
                                             <option value="documental">Documental & Branded Content</option>
                                             <option value="digital">Contenido Digital / Social</option>
                                             <option value="fotografia">Fotografía Profesional</option>
                                         </select>
+                                        <span id="service-optional" class="sr-only">(Opcional)</span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto o idea *" required></textarea>
+                                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto o idea *" required aria-required="true" aria-describedby="message-error"></textarea>
+                                    <span class="form-error" id="message-error">El mensaje es requerido</span>
                                 </div>
                                 <label class="checkbox-container">
-                                    <input type="checkbox" required>
-                                    <span>Acepto la <a href="#">Política de Privacidad</a> y los términos de servicio.</span>
+                                    <input type="checkbox" id="privacyAccept" name="privacyAccept" required aria-required="true">
+                                    <span>Acepto la <a href="#politica" target="_blank">Política de Privacidad</a> y los términos de servicio.</span>
                                 </label>
                                 <button type="submit" class="btn btn-primary" style="width: 100%;">ENVIAR MENSAJE →</button>
                                 <p class="form-note">Te responderemos en menos de 24 horas hábiles.</p>
@@ -1550,171 +1611,286 @@
             </div>
         </section>
     </main>
-
-    <!-- FOOTER -->
-    <footer class="footer" role="contentinfo" aria-label="Pie de página">
+ 
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+  <footer class="footer" role="contentinfo" aria-label="Pie de página">
         <div class="footer-content">
             <div class="footer-logo">
                 <a href="#inicio" aria-label="Volver al inicio">
-                    <img src="assets/logo.png" alt="Ciclo Studio" width="120" height="40" loading="lazy">
+                    <img src="assets/logo.png" alt="Ciclo Studio" width="120" height="10" loading="lazy">
                 </a>
-                <p style="margin-top: 0.5rem;">Narrativas que dejan impacto.<br>No basura.</p>
+                <p style="margin-top: 0.40rem;">Narrativas que dejan impacto. No basura.</p>
             </div>
-
-            <nav aria-label="Enlaces de navegación rápida">
+ 
+            <nav aria-label="Enlaces de navegación rápida del footer">
                 <ul class="footer-links">
                     <li><a href="#nosotros">NOSOTROS</a></li>
                     <li><a href="#servicios">SERVICIOS</a></li>
                     <li><a href="#proyectos">PROYECTOS</a></li>
                     <li><a href="#enfoque">ENFOQUE</a></li>
-                    <li><a href="#testimonios">TESTIMONIOS</a></li>
                     <li><a href="#contacto">CONTACTO</a></li>
                 </ul>
             </nav>
-
+ 
             <div class="social-links" aria-label="Redes sociales">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
-                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <a href="https://instagram.com/ciclo.studio" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
                 </a>
-                <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" aria-label="Mira nuestro portafolio en Vimeo">
-                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.396 7.164c-.093 2.026-1.507 4.799-4.245 8.32-2.817 3.642-5.201 5.463-7.156 5.463-1.216 0-2.245-.56-3.086-1.684-.794-1.07-1.587-3.21-2.381-6.422-.514-2.074-1.07-3.111-1.668-3.111-.122 0-.542.257-1.26.77l-.76-.98c.84-.738 1.668-1.476 2.486-2.214 1.121-1.004 1.962-1.532 2.523-1.588 1.332-.14 2.149.771 2.453 2.733.327 2.149.56 3.481.7 3.995.42 1.846.887 2.769 1.401 2.769.42 0 .934-.677 1.542-2.03.607-1.355.934-2.383.98-3.083.094-1.191-.327-1.787-1.26-1.787-.444 0-.911.103-1.401.309.911-2.986 2.639-4.434 5.186-4.34 1.892.07 2.77 1.285 2.634 3.647z"/></svg>
+                <a href="https://youtube.com/@ciclo.studio" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Conéctanos en LinkedIn">
-                    <svg width="20" height="20" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <a href="https://vimeo.com/ciclo" target="_blank" rel="noopener noreferrer" aria-label="Mira nuestro portafolio en Vimeo">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M22.396 7.164c-.093 2.026-1.507 4.799-4.245 8.32-2.817 3.642-5.201 5.463-7.156 5.463-1.216 0-2.245-.56-3.086-1.684-.794-1.07-1.587-3.21-2.381-6.422-.514-2.074-1.07-3.111-1.668-3.111-.122 0-.542.257-1.26.77l-.76-.98c.84-.738 1.668-1.476 2.486-2.214 1.121-1.004 1.962-1.532 2.523-1.588 1.332-.14 2.149.771 2.453 2.733.327 2.149.56 3.481.7 3.995.42 1.846.887 2.769 1.401 2.769.42 0 .934-.677 1.542-2.03.607-1.355.934-2.383.98-3.083.094-1.191-.327-1.787-1.26-1.787-.444 0-.911.103-1.401.309.911-2.986 2.639-4.434 5.186-4.34 1.892.07 2.77 1.285 2.634 3.647z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/company/ciclo-studio" target="_blank" rel="noopener noreferrer" aria-label="Conéctanos en LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
                 </a>
             </div>
         </div>
-
+ 
         <div class="footer-bottom">
-            <p>© 2026 Ciclo Studio. Todos los derechos reservados. | <a href="#" target="_blank">Política de Privacidad</a> | <a href="#" target="_blank">Términos de Servicio</a></p>
+            <p>© 2026 Ciclo Studio. Todos los derechos reservados. | <a href="#politica" target="_blank">Política de Privacidad</a> | <a href="#terminos" target="_blank">Términos de Servicio</a></p>
         </div>
     </footer>
-
-    <!-- Script ligero para Menú Mobile -->
+ 
+    <!-- ============================================================
+         SCRIPTS
+         ============================================================ -->
     <script>
+        'use strict';
+ 
+        // ============================================================
+        // MOBILE MENU TOGGLE
+        // ============================================================
         document.addEventListener('DOMContentLoaded', () => {
             const toggleBtn = document.getElementById('mobile-menu-toggle');
             const navMenu = document.getElementById('nav-menu');
             const navLinks = document.querySelectorAll('.nav-link');
-
+ 
             if (toggleBtn && navMenu) {
                 toggleBtn.addEventListener('click', () => {
-                    navMenu.classList.toggle('active');
+                    const isActive = navMenu.classList.toggle('active');
+                    toggleBtn.classList.toggle('active', isActive);
+                    toggleBtn.setAttribute('aria-expanded', isActive);
                 });
-
+ 
                 navLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         navMenu.classList.remove('active');
+                        toggleBtn.classList.remove('active');
+                        toggleBtn.setAttribute('aria-expanded', false);
                     });
+                });
+ 
+                // Cerrar menú al presionar Escape
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        toggleBtn.classList.remove('active');
+                        toggleBtn.setAttribute('aria-expanded', false);
+                    }
                 });
             }
         });
-    </script>
-</body>
-</html>
-<!-- SCRIPT GENERAL -->
-    <script>
+ 
+        // ============================================================
+        // PROJECTS TIMED CARDS SLIDER
+        // ============================================================
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Menú Mobile
-            const toggleBtn = document.getElementById('mobile-menu-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            if (toggleBtn && navMenu) {
-                toggleBtn.addEventListener('click', () => {
-                    navMenu.classList.toggle('active');
-                });
-
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        navMenu.classList.remove('active');
-                    });
-                });
-            }
-
-            // 2. Slider Interactivo de Tarjetas Temporizadas
             const cards = document.querySelectorAll('.timed-card');
             const videoPlayer = document.getElementById('bg-video-player');
             const activeCategory = document.getElementById('active-category');
             const activeTitle = document.getElementById('active-title');
             const activeDesc = document.getElementById('active-desc');
-
+ 
             if (cards.length > 0 && videoPlayer) {
                 const DURATION = 5000; // 5 segundos por tarjeta
-                const INTERVAL_STEP = 50; 
+                const INTERVAL_STEP = 50;
                 let currentIndex = 0;
                 let progress = 0;
                 let timer = null;
-
+                let isUserInteracting = false;
+ 
                 function updateCardState(index) {
                     cards.forEach((card, i) => {
                         const progressBar = card.querySelector('.progress-bar');
-                        if (i === index) {
+                        const isActive = i === index;
+                        
+                        if (isActive) {
                             card.classList.add('active');
+                            card.setAttribute('aria-selected', 'true');
+                            card.setAttribute('tabindex', '0');
                         } else {
                             card.classList.remove('active');
+                            card.setAttribute('aria-selected', 'false');
+                            card.setAttribute('tabindex', '-1');
                             if (progressBar) progressBar.style.width = '0%';
                         }
                     });
                 }
-
+ 
                 function loadProject(index) {
-                    const targetCard = cards[index];
-                    const newSrc = targetCard.getAttribute('data-video');
-                    const category = targetCard.getAttribute('data-category');
-                    const title = targetCard.getAttribute('data-title');
-                    const desc = targetCard.getAttribute('data-desc');
-
-                    videoPlayer.style.opacity = '0.2';
-
-                    setTimeout(() => {
-                        videoPlayer.src = newSrc;
-                        videoPlayer.play();
-                        videoPlayer.style.opacity = '1';
-
-                        if (activeCategory) activeCategory.textContent = category;
-                        if (activeTitle) activeTitle.textContent = title;
-                        if (activeDesc) activeDesc.textContent = desc;
-                    }, 300);
-
-                    updateCardState(index);
+                    try {
+                        const targetCard = cards[index];
+                        const newSrc = targetCard.getAttribute('data-video');
+                        const category = targetCard.getAttribute('data-category');
+                        const title = targetCard.getAttribute('data-title');
+                        const desc = targetCard.getAttribute('data-desc');
+ 
+                        if (!newSrc) return;
+ 
+                        videoPlayer.style.opacity = '0.2';
+ 
+                        setTimeout(() => {
+                            videoPlayer.src = newSrc;
+                            videoPlayer.play().catch(() => {
+                                console.log('Autoplay may be restricted by browser');
+                            });
+                            videoPlayer.style.opacity = '1';
+ 
+                            if (activeCategory) activeCategory.textContent = category;
+                            if (activeTitle) activeTitle.textContent = title;
+                            if (activeDesc) activeDesc.textContent = desc;
+                        }, 300);
+ 
+                        updateCardState(index);
+                    } catch (error) {
+                        console.error('Error loading project:', error);
+                    }
                 }
-
+ 
                 function startTimer() {
                     clearInterval(timer);
                     progress = 0;
                     const activeProgressBar = cards[currentIndex].querySelector('.progress-bar');
-
+ 
                     timer = setInterval(() => {
+                        if (isUserInteracting) {
+                            return;
+                        }
+ 
                         progress += (INTERVAL_STEP / DURATION) * 100;
+                        
                         if (activeProgressBar) {
                             activeProgressBar.style.width = `${Math.min(progress, 100)}%`;
                         }
-
+ 
                         if (progress >= 100) {
                             nextCard();
                         }
                     }, INTERVAL_STEP);
                 }
-
+ 
                 function nextCard() {
                     currentIndex = (currentIndex + 1) % cards.length;
                     loadProject(currentIndex);
                     startTimer();
                 }
-
+ 
+                // Event listeners para tarjetas
                 cards.forEach((card, index) => {
                     card.addEventListener('click', () => {
                         if (currentIndex === index) return;
+                        isUserInteracting = true;
                         currentIndex = index;
                         loadProject(currentIndex);
                         startTimer();
+                        setTimeout(() => {
+                            isUserInteracting = false;
+                        }, 500);
+                    });
+ 
+                    // Keyboard navigation
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'ArrowRight' && index < cards.length - 1) {
+                            cards[index + 1].click();
+                        } else if (e.key === 'ArrowLeft' && index > 0) {
+                            cards[index - 1].click();
+                        }
                     });
                 });
-
-                // Iniciar
+ 
+                // Iniciar slider
                 loadProject(0);
                 startTimer();
             }
         });
+ 
+        // ============================================================
+        // FORM VALIDATION
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+ 
+            // Email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ 
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+ 
+                let isValid = true;
+                const fields = {
+                    nombre: { value: form.nombre.value.trim(), pattern: /^.{2,}$/, error: 'nombre-error' },
+                    email: { value: form.email.value.trim(), pattern: emailRegex, error: 'email-error' },
+                    mensaje: { value: form.mensaje.value.trim(), pattern: /^.{10,}$/, error: 'message-error' }
+                };
+ 
+                // Clear previous errors
+                form.querySelectorAll('.form-group').forEach(group => {
+                    group.classList.remove('error');
+                });
+ 
+                // Validate each field
+                Object.entries(fields).forEach(([fieldName, fieldData]) => {
+                    const field = form[fieldName];
+                    const group = field.closest('.form-group');
+                    const errorElement = form.querySelector(`#${fieldData.error}`);
+ 
+                    if (!fieldData.pattern.test(fieldData.value)) {
+                        isValid = false;
+                        group.classList.add('error');
+                        if (errorElement) {
+                            errorElement.style.display = 'block';
+                        }
+                    }
+                });
+ 
+                // Validate privacy checkbox
+                if (!form.privacyAccept.checked) {
+                    isValid = false;
+                    const privacyGroup = form.privacyAccept.closest('.checkbox-container');
+                    privacyGroup.style.borderBottom = '2px solid #ff6b6b';
+                }
+ 
+                if (isValid) {
+                    // Submit form if using Web3Forms
+                    form.submit();
+                }
+            });
+ 
+            // Real-time validation
+            const realTimeFields = ['nombre', 'email', 'mensaje'];
+            realTimeFields.forEach(fieldName => {
+                const field = form[fieldName];
+                field.addEventListener('blur', () => {
+                    const group = field.closest('.form-group');
+                    const isValid = field.value.trim().length > 0;
+                    group.classList.toggle('error', !isValid);
+                });
+            });
+        });
     </script>
+</body>
+</html>
+ 
