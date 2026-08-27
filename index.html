@@ -1283,8 +1283,73 @@
                 <p>Diseñamos cada producción para que una misma historia pueda vivir en múltiples formatos y canales, maximizando su alcance e impacto.</p>
             </div>
         </section>
+<!-- PROJECTS SECTION (TIMED CARDS SLIDER) -->
+        <section id="proyectos" class="projects-section" aria-label="Proyectos destacados">
+            <!-- Video de fondo dinámico -->
+            <div class="projects-bg-wrapper">
+                <video id="bg-video-player" autoplay loop muted playsinline preload="auto" src="assets/video2.mp4"></video>
+                <div class="projects-bg-overlay"></div>
+            </div>
 
-        <!-- PROJECTS SECTION -->
+            <div class="section-container projects-container">
+                <!-- Información principal del video activo -->
+                <div class="project-active-info">
+                    <span class="section-subtitle" id="active-category">BRANDED CONTENT</span>
+                    <h2 class="section-title" id="active-title">Campaña Sostenibilidad</h2>
+                    <p class="project-desc" id="active-desc">Documental sobre iniciativas ambientales de marca global. 2M+ vistas.</p>
+                </div>
+
+                <!-- Tarjetas flotantes laterales -->
+                <div class="timed-cards-wrapper">
+                    <!-- Tarjeta 1 -->
+                    <article class="timed-card active" 
+                             data-video="assets/video2.mp4"
+                             data-category="Branded Content"
+                             data-title="Campaña Sostenibilidad"
+                             data-desc="Documental sobre iniciativas ambientales de marca global. 2M+ vistas.">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="timed-card-content">
+                            <span class="card-step">01</span>
+                            <h3>Campaña Sostenibilidad</h3>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 2 -->
+                    <article class="timed-card" 
+                             data-video="https://assets.mixkit.co/videos/preview/mixkit-top-aerial-shot-of-seashore-4101-large.mp4"
+                             data-category="Contenido Digital"
+                             data-title="Serie Digital Tech"
+                             data-desc="5 episodios de cápsulas de educación financiera. Alcance: 500k usuarios.">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="timed-card-content">
+                            <span class="card-step">02</span>
+                            <h3>Serie Digital Tech</h3>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 3 -->
+                    <article class="timed-card" 
+                             data-video="assets/video4.mp4"
+                             data-category="Fotografía & Video"
+                             data-title="Catálogo de Lujo"
+                             data-desc="Sesión de 120+ imágenes de producto y reel comercial para marca premium.">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="timed-card-content">
+                            <span class="card-step">03</span>
+                            <h3>Catálogo de Lujo</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION
         <section id="proyectos" class="projects-section" aria-label="Proyectos destacados">
             <div class="section-container">
                 <div class="projects-header">
@@ -1332,11 +1397,11 @@
                             <p class="project-desc">Sesión de 120+ imágenes de producto y reel comercial para marca premium.</p>
                         </div>
                     </article>
-                </div>
+                < </div>
 
                 <div class="projects-cta">
                     <a href="#contacto" class="btn btn-outline">VER MÁS PROYECTOS</a>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -1547,3 +1612,109 @@
     </script>
 </body>
 </html>
+<!-- SCRIPT GENERAL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Menú Mobile
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            if (toggleBtn && navMenu) {
+                toggleBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+
+            // 2. Slider Interactivo de Tarjetas Temporizadas
+            const cards = document.querySelectorAll('.timed-card');
+            const videoPlayer = document.getElementById('bg-video-player');
+            const activeCategory = document.getElementById('active-category');
+            const activeTitle = document.getElementById('active-title');
+            const activeDesc = document.getElementById('active-desc');
+
+            if (cards.length > 0 && videoPlayer) {
+                const DURATION = 5000; // 5 segundos por tarjeta
+                const INTERVAL_STEP = 50; 
+                let currentIndex = 0;
+                let progress = 0;
+                let timer = null;
+
+                function updateCardState(index) {
+                    cards.forEach((card, i) => {
+                        const progressBar = card.querySelector('.progress-bar');
+                        if (i === index) {
+                            card.classList.add('active');
+                        } else {
+                            card.classList.remove('active');
+                            if (progressBar) progressBar.style.width = '0%';
+                        }
+                    });
+                }
+
+                function loadProject(index) {
+                    const targetCard = cards[index];
+                    const newSrc = targetCard.getAttribute('data-video');
+                    const category = targetCard.getAttribute('data-category');
+                    const title = targetCard.getAttribute('data-title');
+                    const desc = targetCard.getAttribute('data-desc');
+
+                    videoPlayer.style.opacity = '0.2';
+
+                    setTimeout(() => {
+                        videoPlayer.src = newSrc;
+                        videoPlayer.play();
+                        videoPlayer.style.opacity = '1';
+
+                        if (activeCategory) activeCategory.textContent = category;
+                        if (activeTitle) activeTitle.textContent = title;
+                        if (activeDesc) activeDesc.textContent = desc;
+                    }, 300);
+
+                    updateCardState(index);
+                }
+
+                function startTimer() {
+                    clearInterval(timer);
+                    progress = 0;
+                    const activeProgressBar = cards[currentIndex].querySelector('.progress-bar');
+
+                    timer = setInterval(() => {
+                        progress += (INTERVAL_STEP / DURATION) * 100;
+                        if (activeProgressBar) {
+                            activeProgressBar.style.width = `${Math.min(progress, 100)}%`;
+                        }
+
+                        if (progress >= 100) {
+                            nextCard();
+                        }
+                    }, INTERVAL_STEP);
+                }
+
+                function nextCard() {
+                    currentIndex = (currentIndex + 1) % cards.length;
+                    loadProject(currentIndex);
+                    startTimer();
+                }
+
+                cards.forEach((card, index) => {
+                    card.addEventListener('click', () => {
+                        if (currentIndex === index) return;
+                        currentIndex = index;
+                        loadProject(currentIndex);
+                        startTimer();
+                    });
+                });
+
+                // Iniciar
+                loadProject(0);
+                startTimer();
+            }
+        });
+    </script>
