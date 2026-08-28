@@ -835,8 +835,8 @@ Ciclo studio optimized · HTML
  
         .projects-bg-wrapper {
             position: absolute;
-            inset: 0;
-            z-index: -1;
+            inset: 60px 0 0;
+            z-index: 0;
         }
  
         .projects-bg-wrapper video {
@@ -1391,7 +1391,7 @@ Ciclo studio optimized · HTML
                 <article class="service-card">
                     <div>
                         <div class="service-icon">
-                            <img src="assets/s5.jpeg" alt="Icono producción audiovisual" width="80" height="80" loading="lazy">
+                            <img src="assets/s5.jpeg" alt="Icono producción audiovisual" width="50" height="50" loading="lazy">
                         </div>
                         <h3>PRODUCCIÓN AUDIOVISUAL</h3>
                         <p>Publicidad, corporativo, institucional y campañas de alto impacto.</p>
@@ -1402,7 +1402,7 @@ Ciclo studio optimized · HTML
                 <article class="service-card">
                     <div>
                         <div class="service-icon">
-                            <img src="assets/s4.jpeg" alt="Icono documental y contenido" width="80" height="80" loading="lazy">
+                            <img src="assets/s4.jpeg" alt="Icono documental y contenido" width="50" height="50" loading="lazy">
                         </div>
                         <h3>DOCUMENTAL & BRANDED CONTENT</h3>
                         <p>Historias reales, entrevistas, testimonios y contenido con propósito genuino.</p>
@@ -1413,7 +1413,7 @@ Ciclo studio optimized · HTML
                 <article class="service-card">
                     <div>
                         <div class="service-icon">
-                            <img src="assets/s3.jpeg" alt="Icono contenido digital" width="80" height="80" loading="lazy">
+                            <img src="assets/s3.jpeg" alt="Icono contenido digital" width="50" height="50" loading="lazy">
                         </div>
                         <h3>CONTENIDO DIGITAL</h3>
                         <p>Reels, cápsulas, contenido vertical optimizado para redes sociales.</p>
@@ -1424,7 +1424,7 @@ Ciclo studio optimized · HTML
                 <article class="service-card">
                     <div>
                         <div class="service-icon">
-                            <img src="assets/s2.jpeg" alt="Icono fotografía profesional" width="100" height="100" loading="lazy">
+                            <img src="assets/s2.jpeg" alt="Icono fotografía profesional" width="50" height="50" loading="lazy">
                         </div>
                         <h3>FOTOGRAFÍA</h3>
                         <p>Producto, corporativa, documental y branding visual de calidad premium.</p>
@@ -1444,73 +1444,77 @@ Ciclo studio optimized · HTML
         <!-- ============================================================
              PROJECTS SECTION - TIMED CARDS SLIDER
              ============================================================ -->
-        <section id="proyectos" class="projects-section" aria-label="Proyectos destacados">
-            <div class="projects-bg-wrapper">
-                <video id="bg-video-player" autoplay loop muted playsinline preload="auto" src="assets/video2.mp4" aria-hidden="true"></video>
-                <div class="projects-bg-overlay"></div>
-            </div>
- 
-            <div class="section-container projects-container">
-                <div class="project-active-info">
-                    <span class="section-subtitle" id="active-category">BRANDED CONTENT</span>
-                    <h2 class="section-title" id="active-title">Campaña Sostenibilidad</h2>
-                    <p class="project-desc" id="active-desc">Documental sobre iniciativas ambientales de marca global. 2M+ vistas.</p>
+<section id="proyectos" class="projects-section" aria-label="Proyectos destacados">
+    <div class="projects-bg-wrapper">
+     <video id="bg-video-player" autoplay loop muted playsinline defaultMuted preload="auto" aria-hidden="true">
+    <source id="video-source" src="assets/video2.mp4" type="video/mp4">
+    Tu navegador no soporta el formato de video.
+</video>
+        <div class="projects-bg-overlay"></div>
+    </div>
+
+    <div class="section-container projects-container">
+        <div class="project-active-info">
+            <span class="section-subtitle" id="active-category">BRANDED CONTENT</span>
+            <h2 class="section-title" id="active-title">Campaña Sostenibilidad</h2>
+            <p class="project-desc" id="active-desc">Documental sobre iniciativas ambientales de marca global. 2M+ vistas.</p>
+        </div>
+
+        <div class="timed-cards-wrapper" role="tablist" aria-label="Proyectos destacados">
+            <article class="timed-card active" 
+                     role="tab"
+                     tabindex="0"
+                     aria-selected="true"
+                     data-video="assets/video2.mp4"
+                     data-category="BRANDED CONTENT"
+                     data-title="Campaña Sostenibilidad"
+                     data-desc="Documental sobre iniciativas ambientales de marca global. 2M+ vistas.">
+                <div class="progress-bar-container" aria-hidden="true">
+                    <div class="progress-bar"></div>
                 </div>
- 
-                <div class="timed-cards-wrapper" role="tablist" aria-label="Proyectos destacados">
-                    <article class="timed-card active" 
-                             role="tab"
-                             tabindex="0"
-                             aria-selected="true"
-                             data-video="assets/video2.mp4"
-                             data-category="Branded Content"
-                             data-title="Campaña Sostenibilidad"
-                             data-desc="Documental sobre iniciativas ambientales de marca global. 2M+ vistas.">
-                        <div class="progress-bar-container" aria-hidden="true">
-                            <div class="progress-bar"></div>
-                        </div>
-                        <div class="timed-card-content">
-                            <span class="card-step">01</span>
-                            <h3>Campaña Sostenibilidad</h3>
-                        </div>
-                    </article>
- 
-                    <article class="timed-card" 
-                             role="tab"
-                             tabindex="-1"
-                             aria-selected="false"
-                             data-video="https://assets.mixkit.co/videos/preview/mixkit-top-aerial-shot-of-seashore-4101-large.mp4"
-                             data-category="Contenido Digital"
-                             data-title="Serie Digital Tech"
-                             data-desc="5 episodios de cápsulas de educación financiera. Alcance: 500k usuarios.">
-                        <div class="progress-bar-container" aria-hidden="true">
-                            <div class="progress-bar"></div>
-                        </div>
-                        <div class="timed-card-content">
-                            <span class="card-step">02</span>
-                            <h3>Serie Digital Tech</h3>
-                        </div>
-                    </article>
- 
-                    <article class="timed-card" 
-                             role="tab"
-                             tabindex="-1"
-                             aria-selected="false"
-                             data-video="assets/video4.mp4"
-                             data-category="Fotografía & Video"
-                             data-title="Catálogo de Lujo"
-                             data-desc="Sesión de 120+ imágenes de producto y reel comercial para marca premium.">
-                        <div class="progress-bar-container" aria-hidden="true">
-                            <div class="progress-bar"></div>
-                        </div>
-                        <div class="timed-card-content">
-                            <span class="card-step">03</span>
-                            <h3>Catálogo de Lujo</h3>
-                        </div>
-                    </article>
+                <div class="timed-card-content">
+                    <span class="card-step">01</span>
+                    <h3>Campaña Sostenibilidad</h3>
                 </div>
-            </div>
-        </section>
+            </article>
+
+            <article class="timed-card" 
+                     role="tab"
+                     tabindex="-1"
+                     aria-selected="false"
+                     data-video="assets/video6.mp4"
+                     data-category="CONTENIDO DIGITAL"
+                     data-title="Serie Digital Tech"
+                     data-desc="5 episodios de cápsulas de educación financiera. Alcance: 500k usuarios.">
+                <div class="progress-bar-container" aria-hidden="true">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="timed-card-content">
+                    <span class="card-step">02</span>
+                    <h3>Serie Digital Tech</h3>
+                </div>
+            </article>
+
+            <article class="timed-card" 
+                     role="tab"
+                     tabindex="-1"
+                     aria-selected="false"
+                     data-video="assets/video3.mp4"
+                     data-category="FOTOGRAFÍA & VIDEO"
+                     data-title="Catálogo de Lujo"
+                     data-desc="Sesión de 120+ imágenes de producto y reel comercial para marca premium.">
+                <div class="progress-bar-container" aria-hidden="true">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="timed-card-content">
+                    <span class="card-step">03</span>
+                    <h3>Catálogo de Lujo</h3>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
  
         <!-- ============================================================
              PROCESS SECTION
@@ -1890,6 +1894,8 @@ Ciclo studio optimized · HTML
                 });
             });
         });
+    </script>
+   
     </script>
 </body>
 </html>

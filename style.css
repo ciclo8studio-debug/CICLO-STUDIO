@@ -47,8 +47,8 @@
 
 /* Disminuye el espacio vertical de la sección de Servicios */
 .services-section {
-    padding-top: 4rem !important;
-    padding-bottom: 2rem !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 /* Reduce la distancia superior de la tarjeta verde inferior */
@@ -71,8 +71,8 @@
 .about-section,
 .process-section,
 .testimonials-section {
-    padding-top: 3.5rem !important;
-    padding-bottom: 3.5rem !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
 }
 /* ==========================================================================
    AJUSTE DE ALTURA DEL CONTENEDOR DE VIDEO
@@ -204,11 +204,15 @@
 
         .projects-section {
             position: relative;
-            min-height: 85vh;
+            min-height: 80vh;
+            left: 2%;
+            right: 2%;
+            margin-left: -40vw;
+            margin-right: -40vw;
             display: flex;
             align-items: center;
             overflow: hidden;
-            padding: 6rem 0;
+            padding: 4rem 0;
         }
 
         .projects-bg-wrapper {
@@ -218,11 +222,11 @@
         }
 
         #bg-video-player {
-            width: 100%;
-            height: 100%;
+            width: 60%;
+            height: 60%;
             object-fit: cover;
-            transition: opacity 0.4s ease-in-out;
-            filter: brightness(0.) contrast(1.1) saturate(1.1);
+            transition: opacity 0.3s ease-in-out;
+            filter: brightness(1.1) contrast(1.1) saturate(1.1);
         }
 
         .projects-bg-overlay {
@@ -235,12 +239,11 @@
             position: relative;
             z-index: 2;
             display: grid;
-            grid-template-columns: 1fr 380px;
+            grid-template-columns: 1fr 180px;
             gap: 3rem;
             align-items: flex-end;
         }
 
-        @media (max-width: 992px) {
             .projects-container {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
@@ -408,3 +411,68 @@
         .footer-bottom a:hover {
             color: var(--accent-neon);
         }
+
+        .projects-bg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#bg-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Evita la deformación */
+}
+
+.projects-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Ajusta según el diseño */
+  z-index: 0;
+}
+
+.projects-container {
+  position: relative;
+  z-index: 2; /* Mantiene el contenido por encima del video y del overlay */
+}
+.projects-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+#bg-video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+}
+
+.projects-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Sombra oscura semitransparente */
+}
+
+.projects-container {
+    position: relative;
+    z-index: 1; /* Para estar por encima del video */
+}
+
+.projects-section {
+    position: relative;
+    overflow: hidden;
+}
