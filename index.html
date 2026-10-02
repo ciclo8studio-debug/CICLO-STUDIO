@@ -356,7 +356,7 @@
             .nav-links.active { right: 0; }
         }
  
-        /* HERO SECTION RESPONSIVE */
+        /* HERO SECTION */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -381,7 +381,6 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            transform: scale(0.85); /* Reduce la imagen al 85% de su tamaño */
         }
  
         .hero-overlay {
@@ -390,7 +389,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(5, 11, 8, 0.95) 0%, rgba(5, 11, 8, 0.75) 45%, rgba(5, 11, 8, 0.4) 100%);
+            background: linear-gradient(to right, rgba(5, 11, 8, 0.92) 0%, rgba(5, 11, 8, 0.65) 50%, rgba(5, 11, 8, 0.3) 100%);
             z-index: 2;
         }
 
@@ -401,10 +400,20 @@
         }
  
         .hero-content {
-            max-width: 800px;
             position: relative;
             z-index: 7;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
             animation: fadeInUp 0.9s ease-out;
+        }
+
+        .hero-text-block {
+            max-width: 650px;
         }
  
         @keyframes fadeInUp {
@@ -437,7 +446,7 @@
         }
  
         .hero-title {
-            font-size: clamp(2.2rem, 5.5vw, 4.8rem);
+            font-size: clamp(2.2rem, 5vw, 4.5rem);
             font-weight: 900;
             line-height: 1.08;
             letter-spacing: -0.03em;
@@ -446,9 +455,9 @@
         }
  
         .hero-description {
-            font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
             color: var(--text-muted);
-            max-width: 620px;
+            max-width: 580px;
             margin-bottom: 2.5rem;
             font-weight: 300;
         }
@@ -458,10 +467,79 @@
             gap: 1rem;
             align-items: center;
         }
+
+        /* HERO FEATURES (PILARES DERECHA) */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .hero-feature-card {
+            background: rgba(5, 11, 8, 0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 102, 0.15);
+            padding: 1.5rem 0.8rem;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all var(--transition-fast);
+        }
+
+        .hero-feature-card:hover {
+            border-color: var(--accent-neon);
+            transform: translateY(-4px);
+            box-shadow: var(--glow-green);
+        }
+
+        .hero-feature-icon {
+            width: 42px;
+            height: 42px;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-feature-card h3 {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero-feature-card p {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            line-height: 1.35;
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .hero-features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-features {
+                grid-template-columns: 1fr;
+            }
+        }
  
         .scroll-indicator {
             position: absolute;
-            bottom: 30px;
+            bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -561,7 +639,7 @@
             text-transform: uppercase;
         }
  
-        /* SERVICES SECTION - 4 COLUMNAS DESTO / 1 COLUMNA MÓVIL */
+        /* SERVICES SECTION */
         .services-section {
             padding: 5rem 5%;
             max-width: 1280px;
@@ -962,23 +1040,53 @@
             </div>
  
             <div class="hero-content">
-                <div class="badge">
-                    <span class="badge-dot"></span>
-                    NARRATIVAS <span class="gradient-text">CON PROPÓSITO</span>
+                <!-- Columna Izquierda: Texto Principal -->
+                <div class="hero-text-block">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        NARRATIVAS <span class="gradient-text">CON PROPÓSITO</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Narrativas<br>
+                        <span class="gradient-text">que dejan</span><br>
+                        impacto.<br>
+                        <span class="text-accent">No basura.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Creamos contenido audiovisual para marcas y organizaciones que quieren comunicar de forma consciente y generar un impacto real en sus audiencias.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contacto" class="btn btn-primary" aria-label="Cuéntanos tu historia">
+                            <span>CUÉNTANOS TU HISTORIA</span>
+                        </a>
+                    </div>
                 </div>
-                <h1 class="hero-title">
-                    Narrativas<br>
-                    <span class="gradient-text">que dejan</span><br>
-                    impacto.<br>
-                    <span class="text-accent">No basura.</span>
-                </h1>
-                <p class="hero-description">
-                    Creamos contenido audiovisual para marcas y organizaciones que quieren comunicar de forma consciente y generar un impacto real en sus audiencias.
-                </p>
-                <div class="hero-actions">
-                    <a href="#contacto" class="btn btn-primary" aria-label="Cuéntanos tu historia">
-                        <span>CUÉNTANOS TU HISTORIA</span>
-                    </a>
+
+                <!-- Columna Derecha: Pilares / Tarjetas Flotantes -->
+                <div class="hero-features">
+                    <div class="hero-feature-card">
+                        <div class="hero-feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                        </div>
+                        <h3>INTELIGENCIA COMERCIAL</h3>
+                        <p>Entendemos los datos, impulsamos resultados.</p>
+                    </div>
+
+                    <div class="hero-feature-card">
+                        <div class="hero-feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                        </div>
+                        <h3>PRODUCCIÓN AUDIOVISUAL</h3>
+                        <p>Contenido que conecta, inspira y transforma.</p>
+                    </div>
+
+                    <div class="hero-feature-card">
+                        <div class="hero-feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                        </div>
+                        <h3>SOSTENIBILIDAD</h3>
+                        <p>Proyectos con propósito para un futuro mejor.</p>
+                    </div>
                 </div>
             </div>
  
