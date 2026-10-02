@@ -368,21 +368,20 @@ Ciclo studio optimized · HTML
 }
 
 .hero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.50) contrast(1.9);
-    transform: scale(1.05);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
 }
 
 .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 2; /* Por encima de la imagen de fondo */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 2;
 }
 
 .hero-content {
@@ -547,8 +546,8 @@ Ciclo studio optimized · HTML
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(1.8) contrast(0.9);
-            transform: scale(1.0);
+            filter: none;
+            transform: scale(none);
         }
  
        .hero-overlay {
@@ -557,8 +556,7 @@ Ciclo studio optimized · HTML
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* El 0.4 controla la oscuridad; 1.0 la taparía por completo */
-    z-index: 2;
+background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 35%, transparent 70%);    z-index: 2;
 }
  
         .hero-content {
@@ -1441,6 +1439,7 @@ Ciclo studio optimized · HTML
              SERVICES SECTION
              ============================================================ -->
         <section id="servicios" class="services-section" aria-label="Nuestros servicios">
+            <div class="services-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;"></div>
             <div class="services-header">
                 <div>
                     <span class="section-subtitle">QUÉ HACEMOS</span>
@@ -1617,7 +1616,7 @@ Ciclo studio optimized · HTML
         <!-- ============================================================
              CONTACT SECTION
              ============================================================ -->
-        <section id="contacto" class="contact-section" aria-label="Formulario de contacto" style="margin-top: 0px !important; padding-top: 0rem !important;"></section> 
+        <section id="contacto" class="contact-section" aria-label="Formulario de contacto" style="margin-top: 0px !important; padding-top: 1rem !important;"></section> 
             <div class="section-container">
                 <div class="contact-content">
                     <div class="contact-text">
@@ -1674,7 +1673,7 @@ Ciclo studio optimized · HTML
                                     <input type="checkbox" id="privacyAccept" name="privacyAccept" required aria-required="true">
                                     <span>He leído y acepto la <a href="/privacidad.html">Política de Privacidad</a>. Autorizo a Ciclo Studio a usar mis datos para responder a mi solicitud.</span>
                                 </label>
-                                <button type="submit" class="btn btn-primary" style="width: 110%;">ENVIAR MENSAJE →</button>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">ENVIAR MENSAJE →</button>
                                 <p class="form-note">Te responderemos en menos de 24 horas hábiles.</p>
                                 <p class="form-note" style="font-size:.75rem;opacity:.;">Responsable: Ciclo Studio · Finalidad: gestionar tu consulta y enviarte una propuesta · Base: tu consentimiento · Destinatarios: Web3Forms (envío del formulario) · Derechos: acceso, rectificación, supresión, oposición y portabilidad escribiendo a privacidad@ciclo.studio · Más info en la <a href="/privacidad.html">Política de Privacidad</a>.</p>
                             </fieldset>
@@ -1688,7 +1687,7 @@ Ciclo studio optimized · HTML
     <!-- ============================================================
          FOOTER
          ============================================================ -->
-  <footer class="footer" role="contentinfo" aria-label="Pie de página" style="margin-top: -20px !important; padding-top: 0rem !important;"></footer>
+  <footer class="footer" role="contentinfo" aria-label="Pie de página" style="margin-top: 00px !important; padding-top: 0rem !important;"></footer>
         <div class="footer-content">
             <div class="footer-logo">
                 <a href="#inicio" aria-label="Volver al inicio">
