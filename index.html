@@ -380,7 +380,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: none;
+            object-position: center;
         }
  
         .hero-overlay {
@@ -450,6 +450,12 @@
             max-width: 620px;
             margin-bottom: 2.5rem;
             font-weight: 300;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
         }
  
         .scroll-indicator {
@@ -994,9 +1000,9 @@
                     <a href="#contacto" class="link-accent">CONOCE MÁS SOBRE NUESTRO ENFOQUE →</a>
                 </div>
                 <div class="about-video">
-                    <video class="about-video-file" autoplay loop muted playsinline preload="none" poster="assets/banner2.png"style="width: 90%; height: 90%; object-fit: cover; object-position: center;">
+                    <video class="about-video-file" autoplay loop muted playsinline preload="none" poster="assets/banner2.png">
                         <source src="assets/video1.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
+                        Tu navegador no soporta la reproducción de video.   
                     </video>
                 </div>
             </div>
