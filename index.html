@@ -38,7 +38,6 @@ Ciclo studio optimized · HTML
     <!-- PRECONEXIONES (Performance) -->
     
     <!-- PREFETCH Para Recursos -->
-    <link rel="prefetch" href="assets/banner2.png">
     <link rel="prefetch" href="assets/video1.mp4">
     
     <!-- SEGURIDAD: CSP (reforzar además con cabeceras HTTP en el servidor, ver guía) -->
@@ -149,7 +148,7 @@ Ciclo studio optimized · HTML
  
         body {
             background-color: var(--bg-dark);
-            line-height: 1.6;
+            line-height: 1.6
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             background-image:
@@ -346,7 +345,52 @@ Ciclo studio optimized · HTML
             transform: scale(1.1);
             box-shadow: var(--glow-green);
         }
- 
+ /* ============================================================
+   HERO SECTION - CAPAS Y POSICIONAMIENTO
+   ============================================================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 5% 4rem 5%;
+    overflow: hidden;
+    z-index: 1; /* Establece el contexto de apilamiento por debajo del navbar (z-index: 1000) */
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Fondo dentro del hero */
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.36) contrast(1.18);
+    transform: scale(1.05);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2; /* Por encima de la imagen de fondo */
+}
+
+.hero-content {
+    max-width: 8000px;
+    position: relative;
+    z-index: 7; /* Por encima de la capa overlay */
+    animation: fadeInUp 0.9s ease-out;
+}
         /* ============================================================
            NAVBAR - NAVEGACIÓN FIJA
            ============================================================ */
@@ -503,15 +547,19 @@ Ciclo studio optimized · HTML
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.35) contrast(1.15);
+            filter: brightness(1) contrast(1.2);
             transform: scale(1.05);
         }
  
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(5, 11, 8, 0.4) 0%, var(--bg-dark) 90%);
-        }
+       .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* El 0.4 controla la oscuridad; 1.0 la taparía por completo */
+    z-index: 2;
+}
  
         .hero-content {
             max-width: 800px;
@@ -1068,8 +1116,7 @@ Ciclo studio optimized · HTML
             padding: 2.5rem;
             backdrop-filter: blur(20px);
             box-shadow: var(--shadow-lg);
-        }
- 
+
         .contact-form fieldset {
             border: none;
         }
@@ -1296,10 +1343,22 @@ Ciclo studio optimized · HTML
              HERO SECTION
              ============================================================ -->
         <section class="hero" aria-label="Sección principal">
-            <div class="hero-bg">
-                <img src="assets/banner2.png" alt="Camarógrafo profesional grabando en la naturaleza" width="1600" height="900" loading="eager">
-                <div class="hero-overlay"></div>
-            </div>
+        <div class="hero-bg">
+<img 
+  src="assets/banner2.png" 
+  alt="Camarógrafo profesional" 
+  width="5500" 
+  height="90" 
+  loading="eager" 
+  style="
+    width: 400%; 
+    max-width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    display: block;
+  "
+>    <div class="hero-overlay"></div>
+</div>
  
             <div class="hero-content">
                 <div class="badge">
@@ -1391,6 +1450,7 @@ Ciclo studio optimized · HTML
             </div>
             
             <div class="services-grid">
+                
                 <article class="service-card">
                     <div>
                         <div class="service-icon">
