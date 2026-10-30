@@ -1,6 +1,3 @@
-
-
-Ciclo studio optimized · HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,9 +33,6 @@ Ciclo studio optimized · HTML
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     
     <!-- PRECONEXIONES (Performance) -->
-    
-    <!-- PREFETCH Para Recursos -->
-    <link rel="prefetch" href="assets/video1.mp4">
     
     <!-- SEGURIDAD: CSP (reforzar además con cabeceras HTTP en el servidor, ver guía) -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
@@ -76,7 +70,6 @@ Ciclo studio optimized · HTML
  
     <!-- FONTS autoalojadas (sin transferencia de IP a Google) -->
     <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
     <style>
         @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/inter-latin-wght-normal.woff2') format('woff2')}
         @font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;src:url('assets/fonts/playfair-display-latin-wght-normal.woff2') format('woff2')}
@@ -1114,6 +1107,7 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
             padding: 2.5rem;
             backdrop-filter: blur(20px);
             box-shadow: var(--shadow-lg);
+        }
 
         .contact-form fieldset {
             border: none;
@@ -1213,95 +1207,338 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
         }
  
         /* ============================================================
-           FOOTER
+           RESPONSIVE / MÓVIL + RENDIMIENTO
+           Bloque añadido al final para que gane la cascada.
+           Nada de aquí se aplica en escritorio (>992px), salvo
+           las reglas de la imagen del hero, que replican lo que antes
+           estaba en el atributo style="" para poder sobreescribirlo.
            ============================================================ */
-        .footer {
-            border-top: 1px solid var(--border-glass);
-            background: rgba(3, 7, 5, 0.95);
-            padding: 5rem 5% 2rem 5%;
+
+        /* Imagen del hero (antes inline) - idéntica en escritorio */
+        .hero-bg .hero-img {
+            width: 400%;
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
         }
- 
-        .footer-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
- 
-        .footer-logo p {
-            color: var(--text-dim);
-            font-size: 0.85rem;
+
+        body {
+            overflow-x: clip; /* evita scroll horizontal sin crear contenedor de scroll */
         }
- 
-        .footer-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            flex-wrap: wrap;
+
+        /* ---------- TABLET Y MÓVIL (<= 992px) ---------- */
+        @media (max-width: 992px) {
+            html {
+                scroll-padding-top: 5.5rem; /* el navbar fijo no tapa los títulos al navegar */
+            }
+
+            /* Fondo fijo: en móvil se pinta en una capa propia (mucho más fluido) */
+            body {
+                background-image: none;
+                background-attachment: scroll;
+                background-color: transparent;
+            }
+
+            body::before {
+                content: '';
+                position: fixed;
+                inset: 0;
+                z-index: -1;
+                pointer-events: none;
+                background-image:
+                    radial-gradient(circle at 15% 20%, rgba(0, 255, 102, 0.12) 0%, transparent 40%),
+                    radial-gradient(circle at 85% 60%, rgba(16, 185, 129, 0.1) 0%, transparent 45%);
+            }
+
+            /* NAVBAR: sin blur (además el blur rompía el menú lateral fijo) */
+            .navbar {
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none;
+                background: rgba(5, 11, 8, 0.96);
+                padding: 0.6rem 4%;
+                gap: 0.5rem;
+            }
+
+            .navbar .logo {
+                flex-shrink: 0;
+            }
+
+            .navbar .logo img {
+                height: 46px;
+            }
+
+            /* Botón de WhatsApp compacto (antes desbordaba la pantalla) */
+            .navbar > .btn {
+                order: 2;
+                margin-left: auto;
+                min-height: 40px;
+                padding: 0.5rem 0.9rem;
+                font-size: 0.68rem;
+                letter-spacing: 0.04em;
+                line-height: 1.25;
+                text-align: center;
+                max-width: 200px;
+                gap: 0.4rem;
+            }
+
+            .mobile-menu-btn {
+                order: 3;
+                min-width: 44px;
+                min-height: 44px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Hamburguesa -> X bien centrada */
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            /* Menú lateral */
+            .nav-links {
+                height: 100vh;
+                height: 100dvh;
+                background: rgba(5, 11, 8, 0.98);
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none;
+                visibility: hidden;
+                transition: right var(--transition-smooth), visibility 0s linear 0.4s;
+            }
+
+            .nav-links.active {
+                visibility: visible;
+                transition: right var(--transition-smooth), visibility 0s;
+            }
+
+            .nav-links .nav-link {
+                font-size: 1.05rem;
+            }
+
+            /* HERO: la imagen cubre todo el bloque y no se descarga el fondo duplicado */
+            .hero {
+                min-height: 85vh !important;
+                min-height: 85svh !important;
+                padding: 7rem 5% 5rem 5% !important;
+                background-image: none !important;
+            }
+
+            .hero-bg {
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .hero-bg .hero-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 70% center;
+            }
+
+            /* Velo uniforme para que el texto siempre se lea sobre la foto */
+            .hero-overlay {
+                background: linear-gradient(180deg, rgba(5, 11, 8, 0.72) 0%, rgba(5, 11, 8, 0.55) 45%, rgba(5, 11, 8, 0.88) 100%);
+            }
+
+            .hero-content {
+                max-width: 100% !important;
+            }
+
+            .scroll-indicator {
+                bottom: 1rem;
+            }
+
+            /* PROYECTOS: ya no se sale de pantalla (el truco de -40vw solo vale en escritorio) */
+            .projects-section {
+                left: 0;
+                right: 0;
+                margin-left: calc(50% - 50vw);
+                margin-right: calc(50% - 50vw);
+                min-height: auto;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            /* PROCESO: 2 columnas en tablet */
+            .process-steps {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 1rem 0;
+            }
+
+            .process-step {
+                flex: 1 1 260px;
+            }
+
+            /* FOOTER: tenía contenido pegado a los bordes */
+            .footer-content {
+                padding: 0 5%;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-logo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+                gap: 0.25rem 1.25rem;
+            }
+
+            .footer-bottom {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
         }
- 
-        .footer-links a {
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
+
+        /* ---------- MÓVIL (<= 768px) ---------- */
+        @media (max-width: 768px) {
+            /* Quitar backdrop-filter: es lo más pesado para la GPU del celular */
+            .service-card,
+            .timed-card,
+            .process-step,
+            .contact-form-container,
+            .stats-section,
+            .badge,
+            .btn-outline,
+            .btn-play-large {
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none;
+            }
+
+            /* Fondos un poco más opacos donde el blur se notaba (tarjetas sobre el video) */
+            .timed-card {
+                background: rgba(13, 22, 18, 0.88);
+            }
+
+            .timed-card.active {
+                background: rgba(8, 28, 18, 0.92);
+            }
+
+            /* El filtro sobre un video en reproducción cuesta mucho en móvil */
+            #bg-video-player {
+                filter: none;
+            }
+
+            .services-section {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            .services-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .projects-section {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1.1rem 0.75rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.72rem;
+            }
+
+            .service-card {
+                padding: 1.8rem 1.5rem;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .process-step {
+                flex: 0 0 auto;
+                width: 100%;
+                padding: 1.5rem 1.25rem;
+            }
+
+            /* Contacto */
+            .contact-section {
+                padding-bottom: 1rem;
+            }
+
+            .contact-form-container {
+                padding: 1.5rem 1.25rem;
+                border-radius: 22px;
+            }
+
+            .contact-form fieldset {
+                min-width: 0;
+            }
+
+            /* 16px evita el zoom automático de iOS al enfocar un campo */
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px;
+            }
         }
- 
-        .footer-links a:hover,
-        .footer-links a:focus-visible {
-            color: var(--accent-neon);
+
+        /* ---------- MÓVIL CHICO (<= 480px) ---------- */
+        @media (max-width: 480px) {
+            .navbar .logo img {
+                height: 40px;
+            }
+
+            .navbar > .btn {
+                font-size: 0.6rem;
+                padding: 0.45rem 0.7rem;
+                max-width: 150px;
+                min-height: 38px;
+            }
+
+            .hero-actions {
+                gap: 1rem;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .contact-form-container {
+                padding: 1.4rem 1.1rem;
+            }
         }
- 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
- 
-        .social-links a {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(0, 255, 102, 0.03);
-            border: 1px solid var(--border-glass);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            fill: var(--text-muted);
-            transition: all var(--transition-fast);
-            min-height: 44px;
-        }
- 
-        .social-links a:hover,
-        .social-links a:focus-visible {
-            fill: #ffffff;
-            border-color: var(--accent-neon);
-            box-shadow: var(--glow-green);
-            transform: translateY(-3px);
-        }
- 
-        .footer-bottom {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 0.5px solid rgba(0, 255, 102, 0.05);
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--text-dim);
-        }
- 
-        .footer-bottom a {
-            color: var(--text-muted);
-        }
- 
-        .footer-bottom a:hover {
-            color: var(--accent-neon);
+
+        /* ---------- PANTALLAS TÁCTILES: sin "hover pegado" ---------- */
+        @media (hover: none) {
+            .service-card:hover,
+            .stat-item:hover,
+            .timed-card:hover,
+            .process-step:hover {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -1342,20 +1579,7 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
              ============================================================ -->
         <section class="hero" aria-label="Sección principal">
         <div class="hero-bg">
-<img 
-  src="assets/banner2.png" 
-  alt="Camarógrafo profesional" 
-  width="5500" 
-  height="90" 
-  loading="eager" 
-  style="
-    width: 400%; 
-    max-width: 100%; 
-    height: auto; 
-    object-fit: cover; 
-    display: block;
-  "
->    <div class="hero-overlay"></div>
+<img class="hero-img" src="assets/banner2.png" alt="Camarógrafo profesional" width="5500" height="90" loading="eager" fetchpriority="high" decoding="async">    <div class="hero-overlay"></div>
 </div>
  
             <div class="hero-content">
@@ -1401,7 +1625,7 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
                     <a href="#contacto" class="link-accent">CONOCE MÁS SOBRE NUESTRO ENFOQUE →</a>
                 </div>
                 <div class="about-video">
-                    <video class="about-video-file" autoplay loop muted playsinline preload="none" poster="assets/banner2.png">
+                    <video class="about-video-file" loop muted playsinline preload="none" disableremoteplayback poster="assets/banner2.png">
                         <source src="assets/video1.mp4" type="video/mp4">
                         Tu navegador no soporta la reproducción de video.
                     </video>
@@ -1439,7 +1663,6 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
              SERVICES SECTION
              ============================================================ -->
         <section id="servicios" class="services-section" aria-label="Nuestros servicios">
-            <div class="services-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;"></div>
             <div class="services-header">
                 <div>
                     <span class="section-subtitle">QUÉ HACEMOS</span>
@@ -1457,8 +1680,8 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
                         </div>
                         <h3>PRODUCCIÓN AUDIOVISUAL</h3>
                         <p>Publicidad, corporativo, institucional y campañas de alto impacto.</p>
-                    <!-- </div>
-                    <a href="#contacto" class="link-accent">VER MÁS →</a> -->
+                    </div>
+                    <!-- <a href="#contacto" class="link-accent">VER MÁS →</a> -->
                 </article>
  
                 <article class="service-card">
@@ -1468,8 +1691,8 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
                         </div>
                         <h3>DOCUMENTAL & BRANDED CONTENT</h3>
                         <p>Historias reales, entrevistas, testimonios y contenido con propósito genuino.</p>
-                    <!-- </div>
-                    <a href="#contacto" class="link-accent">VER MÁS →</a> -->
+                    </div>
+                    <!-- <a href="#contacto" class="link-accent">VER MÁS →</a> -->
                 </article>
  
                 <article class="service-card">
@@ -1479,8 +1702,8 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
                         </div>
                         <h3>CONTENIDO DIGITAL</h3>
                         <p>Reels, cápsulas, contenido vertical optimizado para redes sociales.</p>
-                    <!-- </div>
-                    <a href="#contacto" class="link-accent">VER MÁS →</a> -->
+                    </div>
+                    <!-- <a href="#contacto" class="link-accent">VER MÁS →</a> -->
                 </article>
  
                 <article class="service-card">
@@ -1490,8 +1713,8 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
                         </div>
                         <h3>FOTOGRAFÍA</h3>
                         <p>Producto, corporativa, documental y branding visual de calidad premium.</p>
-                    <!-- </div>
-                    <a href="#contacto" class="link-accent">VER MÁS →</a> -->
+                    </div>
+                    <!-- <a href="#contacto" class="link-accent">VER MÁS →</a> -->
                 </article>
             </div>
 <!--  
@@ -1508,7 +1731,7 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
              ============================================================ -->
 <section id="proyectos" class="projects-section" aria-label="Proyectos destacados">
     <div class="projects-bg-wrapper">
-     <video id="bg-video-player" autoplay loop muted playsinline defaultMuted preload="auto" aria-hidden="true">
+     <video id="bg-video-player" loop muted playsinline preload="none" disableremoteplayback aria-hidden="true">
     <source id="video-source" src="assets/video2.mp4" type="video/mp4">
     Tu navegador no soporta el formato de video.
 </video>
@@ -1740,6 +1963,34 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
          ============================================================ -->
     <script>
         'use strict';
+
+        // ============================================================
+        // VIDEOS PEREZOSOS: solo cargan/reproducen cuando se ven
+        // (ahorra datos y batería en móvil; respeta "Ahorro de datos")
+        // ============================================================
+        const SAVE_DATA = !!(navigator.connection && navigator.connection.saveData);
+
+        function safePlay(video) {
+            if (!video || SAVE_DATA) return;
+            video.muted = true;
+            const p = video.play();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+        }
+
+        function lazyPlay(video, margin) {
+            if (!video || SAVE_DATA) return;
+            if (!('IntersectionObserver' in window)) { safePlay(video); return; }
+            new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) safePlay(video);
+                    else video.pause();
+                });
+            }, { rootMargin: margin || '150px 0px' }).observe(video);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lazyPlay(document.querySelector('.about-video-file'));
+        });
  
         // ============================================================
         // MOBILE MENU TOGGLE
@@ -1777,127 +2028,154 @@ background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7)
  
         // ============================================================
         // PROJECTS TIMED CARDS SLIDER
+        // (misma lógica y tiempos; ahora solo corre mientras la sección
+        //  es visible y no recarga el video inicial sin necesidad)
         // ============================================================
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.timed-card');
             const videoPlayer = document.getElementById('bg-video-player');
+            const section = document.getElementById('proyectos');
             const activeCategory = document.getElementById('active-category');
             const activeTitle = document.getElementById('active-title');
             const activeDesc = document.getElementById('active-desc');
- 
-            if (cards.length > 0 && videoPlayer) {
-                const DURATION = 5000; // 5 segundos por tarjeta
-                const INTERVAL_STEP = 50;
-                let currentIndex = 0;
-                let progress = 0;
-                let timer = null;
-                let isUserInteracting = false;
- 
-                function updateCardState(index) {
-                    cards.forEach((card, i) => {
-                        const progressBar = card.querySelector('.progress-bar');
-                        const isActive = i === index;
-                        
-                        if (isActive) {
-                            card.classList.add('active');
-                            card.setAttribute('aria-selected', 'true');
-                            card.setAttribute('tabindex', '0');
-                        } else {
-                            card.classList.remove('active');
-                            card.setAttribute('aria-selected', 'false');
-                            card.setAttribute('tabindex', '-1');
-                            if (progressBar) progressBar.style.width = '0%';
-                        }
-                    });
-                }
- 
-                function loadProject(index) {
-                    try {
-                        const targetCard = cards[index];
-                        const newSrc = targetCard.getAttribute('data-video');
-                        const category = targetCard.getAttribute('data-category');
-                        const title = targetCard.getAttribute('data-title');
-                        const desc = targetCard.getAttribute('data-desc');
- 
-                        if (!newSrc) return;
- 
-                        videoPlayer.style.opacity = '0.2';
- 
-                        setTimeout(() => {
-                            videoPlayer.src = newSrc;
-                            videoPlayer.play().catch(() => {
-                                console.log('Autoplay may be restricted by browser');
-                            });
-                            videoPlayer.style.opacity = '1';
- 
-                            if (activeCategory) activeCategory.textContent = category;
-                            if (activeTitle) activeTitle.textContent = title;
-                            if (activeDesc) activeDesc.textContent = desc;
-                        }, 300);
- 
-                        updateCardState(index);
-                    } catch (error) {
-                        console.error('Error loading project:', error);
-                    }
-                }
- 
-                function startTimer() {
-                    clearInterval(timer);
-                    progress = 0;
-                    const activeProgressBar = cards[currentIndex].querySelector('.progress-bar');
- 
-                    timer = setInterval(() => {
-                        if (isUserInteracting) {
-                            return;
-                        }
- 
-                        progress += (INTERVAL_STEP / DURATION) * 100;
-                        
-                        if (activeProgressBar) {
-                            activeProgressBar.style.width = `${Math.min(progress, 100)}%`;
-                        }
- 
-                        if (progress >= 100) {
-                            nextCard();
-                        }
-                    }, INTERVAL_STEP);
-                }
- 
-                function nextCard() {
-                    currentIndex = (currentIndex + 1) % cards.length;
-                    loadProject(currentIndex);
-                    startTimer();
-                }
- 
-                // Event listeners para tarjetas
-                cards.forEach((card, index) => {
-                    card.addEventListener('click', () => {
-                        if (currentIndex === index) return;
-                        isUserInteracting = true;
-                        currentIndex = index;
-                        loadProject(currentIndex);
-                        startTimer();
-                        setTimeout(() => {
-                            isUserInteracting = false;
-                        }, 500);
-                    });
- 
-                    // Keyboard navigation
-                    card.addEventListener('keydown', (e) => {
-                        if (e.key === 'ArrowRight' && index < cards.length - 1) {
-                            cards[index + 1].click();
-                        } else if (e.key === 'ArrowLeft' && index > 0) {
-                            cards[index - 1].click();
-                        }
-                    });
+
+            if (!(cards.length > 0 && videoPlayer)) return;
+
+            const DURATION = 5000; // 5 segundos por tarjeta
+            let currentIndex = 0;
+            let startTime = 0;
+            let rafId = null;
+            let swapTimeout = null;
+            let visible = !('IntersectionObserver' in window) || !section;
+
+            videoPlayer.muted = true;
+
+            // El video aparece con fade-in cuando realmente empieza a reproducirse
+            videoPlayer.addEventListener('playing', () => {
+                videoPlayer.style.opacity = '1';
+            });
+
+            function updateCardState(index) {
+                cards.forEach((card, i) => {
+                    const progressBar = card.querySelector('.progress-bar');
+                    const isActive = i === index;
+
+                    card.classList.toggle('active', isActive);
+                    card.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                    card.setAttribute('tabindex', isActive ? '0' : '-1');
+                    if (!isActive && progressBar) progressBar.style.width = '0%';
                 });
- 
-                // Iniciar slider
-                loadProject(0);
+            }
+
+            function loadProject(index) {
+                const targetCard = cards[index];
+                const newSrc = targetCard.getAttribute('data-video');
+                const category = targetCard.getAttribute('data-category');
+                const title = targetCard.getAttribute('data-title');
+                const desc = targetCard.getAttribute('data-desc');
+
+                if (!newSrc) return;
+
+                updateCardState(index);
+                videoPlayer.style.opacity = '0.2';
+
+                clearTimeout(swapTimeout);
+                swapTimeout = setTimeout(() => {
+                    if (videoPlayer.getAttribute('src') !== newSrc) {
+                        videoPlayer.src = newSrc;
+                    }
+                    if (visible) {
+                        safePlay(videoPlayer);
+                    }
+                    videoPlayer.style.opacity = '1';
+
+                    if (activeCategory) activeCategory.textContent = category;
+                    if (activeTitle) activeTitle.textContent = title;
+                    if (activeDesc) activeDesc.textContent = desc;
+                }, 300);
+            }
+
+            function tick(now) {
+                if (!visible) { rafId = null; return; }
+
+                const bar = cards[currentIndex].querySelector('.progress-bar');
+                const elapsed = Math.max(0, now - startTime);
+                const pct = Math.min((elapsed / DURATION) * 100, 100);
+
+                if (bar) bar.style.width = pct + '%';
+
+                if (elapsed >= DURATION) {
+                    nextCard();
+                    return;
+                }
+                rafId = requestAnimationFrame(tick);
+            }
+
+            function startTimer() {
+                cancelAnimationFrame(rafId);
+                rafId = null;
+
+                const bar = cards[currentIndex].querySelector('.progress-bar');
+                if (bar) bar.style.width = '0%';
+
+                startTime = performance.now();
+                if (visible && !document.hidden) {
+                    rafId = requestAnimationFrame(tick);
+                }
+            }
+
+            function nextCard() {
+                currentIndex = (currentIndex + 1) % cards.length;
+                loadProject(currentIndex);
+                startTimer();
+            }
+
+            function goTo(index) {
+                if (currentIndex === index) return;
+                currentIndex = index;
+                loadProject(currentIndex);
+                startTimer();
+            }
+
+            // Event listeners para tarjetas
+            cards.forEach((card, index) => {
+                card.addEventListener('click', () => goTo(index));
+
+                // Keyboard navigation
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowRight' && index < cards.length - 1) {
+                        cards[index + 1].click();
+                    } else if (e.key === 'ArrowLeft' && index > 0) {
+                        cards[index - 1].click();
+                    }
+                });
+            });
+
+            // Pausar todo cuando la sección no se ve o la pestaña está oculta
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden && visible) startTimer();
+            });
+
+            updateCardState(0);
+
+            if ('IntersectionObserver' in window && section) {
+                new IntersectionObserver((entries) => {
+                    visible = entries[0].isIntersecting;
+                    if (visible) {
+                        safePlay(videoPlayer);
+                        startTimer();
+                    } else {
+                        videoPlayer.pause();
+                        cancelAnimationFrame(rafId);
+                        rafId = null;
+                    }
+                }, { rootMargin: '150px 0px' }).observe(section);
+            } else {
+                safePlay(videoPlayer);
                 startTimer();
             }
         });
- 
+
         // ============================================================
         // CONFIRMACIÓN DE ENVÍO (redirect #gracias)
         // ============================================================

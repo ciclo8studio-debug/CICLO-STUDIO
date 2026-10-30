@@ -244,6 +244,7 @@
             align-items: flex-end;
         }
 
+        @media (max-width: 992px) {
             .projects-container {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
@@ -475,4 +476,173 @@
 .projects-section {
     position: relative;
     overflow: hidden;
+}
+
+/* Ajuste de tarjetas "Cómo Trabajamos" - Ciclo Studio */
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.process-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 2rem 1.75rem;
+    position: relative;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: all var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+/* Límite/Borde neón superior que se ilumina al hover */
+.process-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--grad-primary);
+    opacity: 0.4;
+    transition: opacity var(--transition-fast);
+}
+
+.process-step:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-highlight);
+    box-shadow: var(--glow-green);
+}
+
+.process-step:hover::before {
+    opacity: 1;
+}
+
+.step-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    color: var(--accent-neon);
+    background: rgba(0, 255, 102, 0.08);
+    border: 1px solid rgba(0, 255, 102, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+}
+
+.process-step h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
+.process-step p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+@media (min-width: 992px) {
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        position: relative;
+    }
+
+    /* Línea conector horizontal de fondo */
+    .process-steps::before {
+        content: '';
+        position: absolute;
+        top: 35px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+            rgba(0, 255, 102, 0.1) 0%, 
+            rgba(0, 255, 102, 0.5) 50%, 
+            rgba(0, 255, 102, 0.1) 100%);
+        z-index: 0;
+    }
+
+    .process-step {
+        z-index: 1;
+    }
+}
+
+
+/* Layout base para el contenedor */
+.process-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    padding: 2rem 0;
+    overflow: hidden; /* Evita scrollbars durante la animación */
+}
+
+/* Estado base y animación de cada tarjeta */
+.process-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 2rem 1.75rem;
+    position: relative;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* Configuración de la animación de entrada */
+    opacity: 0;
+    animation: expandFromCenter 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Delays para que se abran en secuencia desde el centro */
+.process-step:nth-child(1) { animation-delay: 0.1s; }
+.process-step:nth-child(2) { animation-delay: 0.2s; }
+.process-step:nth-child(3) { animation-delay: 0.3s; }
+.process-step:nth-child(4) { animation-delay: 0.4s; }
+
+/* Keyframes: Nacen agrupadas al centro y se expanden a su posición final */
+@keyframes expandFromCenter {
+    0% {
+        opacity: 0;
+        transform: scale(0.6) translateX(0);
+    }
+    60% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+}
+
+/* Ajuste Responsive para pantallas móviles */
+@media (max-width: 768px) {
+    .process-steps {
+        flex-direction: column;
+    }
+    
+    @keyframes expandFromCenter {
+        0% {
+            opacity: 0;
+            transform: scale(0.8) translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
 }
